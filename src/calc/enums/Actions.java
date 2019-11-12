@@ -1,3 +1,4 @@
+/*
 package calc.enums;
 
 import calc.Main;
@@ -22,7 +23,7 @@ public enum Actions {
         this.symbolAction = symbolAction;
     }
 
-    public String getEnglishName() {
+    public String getName() {
         if (Main.language){
             return englishName;
         }else {
@@ -36,3 +37,4 @@ public enum Actions {
 
 
 }
+*/
