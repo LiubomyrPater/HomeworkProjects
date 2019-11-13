@@ -11,10 +11,29 @@ public final class Input {
     private Action action;
     private double digitA;
     private double digitB;
-    private Character symbolAction;
+    private String symbolAction = "";
 
-    public double getResult() {
-        return action.action();
+    private String parsedSplitRow(String textRow){
+        textRow = textRow.replaceAll("\\s+","");
+        textRow = textRow.replaceAll("[^-0123456789,./*!%+S^]","");
+        textRow = textRow.replace(',', '.');
+        String operands[] = textRow.split("[-!%*/S^+]");
+
+        if (!operands[0].isEmpty()){
+            if (operands.length == 2){
+                digitA = Double.parseDouble(operands[0]);
+                digitB = Double.parseDouble(operands[1]);
+            }else if (operands.length == 1){
+                digitA = Double.parseDouble(operands[0]);
+            }else {
+                System.out.println(BAD.getText());
+                setElements();
+            }
+        }else {
+            System.out.println(BAD.getText());
+            setElements();
+        }
+        return textRow;
     }
 
     public void setElements() {
@@ -26,42 +45,44 @@ public final class Input {
             Main.programCalc = false;
         }else {
             String textRow = scanner.nextLine();
-            String operands[] = textRow.split(" ");
-            if (operands.length != 3){
-                System.out.println(BAD.getText());
-                setElements();
+            String newTextRow = parsedSplitRow(textRow);
+            if (newTextRow.contains("+")){
+                action = new Addiction(digitA, digitB);
+                symbolAction = "+";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
+            }else if (newTextRow.contains("-")){
+                action = new Subtraction(digitA, digitB);
+                symbolAction = "-";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
+            }else if (newTextRow.contains("*")){
+                action = new Multiplicate(digitA, digitB);
+                symbolAction = "*";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
+            }else if (newTextRow.contains("/")){
+                action = new Divide(digitA, digitB);
+                symbolAction = "/";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
+            }else if (newTextRow.contains("!")){
+                action = new Plug();
+                symbolAction = "!";
+                System.out.print(digitA + " "  + symbolAction + " = ");
+            }else if (newTextRow.contains("%")){
+                action = new DivideByModul(digitA, digitB);
+                symbolAction = "MOD";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
+            }else if (newTextRow.contains("S")) {
+                action = new Sqrt(digitA);
+                symbolAction = "\u221A";
+                System.out.print(symbolAction + " "  + digitA + " = ");
+            }else if (newTextRow.contains("^")){
+                action = new Pow(digitA, digitB);
+                symbolAction = "^";
+                System.out.print(digitA + " "  + symbolAction + " " + digitB + " = ");
             }else {
-
-                digitA = Double.valueOf(operands[0]);
-                symbolAction = operands[1].charAt(0);
-                digitB = Double.valueOf(operands[2]);
-
-                switch (symbolAction){
-                    case '+':
-                        this.action = new Addiction(digitA, digitB);
-                        break;
-                    case '-':
-                        this.action = new Subtraction(digitA, digitB);
-                        break;
-                    case '*':
-                        this.action = new Multiplicate(digitA, digitB);
-                        break;
-                    case '/':
-                        this.action = new Divide(digitA, digitB);
-                        break;
-                    case '%':
-                        this.action = new DivideByModul(digitA, digitB);
-                        break;
-                    case '!':
-                        this.action = new Plug();
-                        break;
-                    default:{
-                        this.action = new Plug();
-                    }
-                }
-                System.out.println(Math.round(getResult() * Math.pow(10, Main.theDigit)) / Math.pow(10, Main.theDigit));
-                System.out.println();
+                action = new Plug();
             }
+            //System.out.println(Math.round(action.action() * Math.pow(10, Main.theDigit)) / Math.pow(10, Main.theDigit));
+            System.out.println(action.action());
         }
     }
 }
