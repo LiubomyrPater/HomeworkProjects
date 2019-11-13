@@ -11,26 +11,28 @@ public final class Input {
     private Action action;
     private double digitA;
     private double digitB;
+    private int helpMinus;
     private String symbolAction = "";
 
     private String parsedSplitRow(String textRow){
+        helpMinus = 1;
         textRow = textRow.replaceAll("\\s+","");
         textRow = textRow.replaceAll("[^-0123456789,./*!%+S^]","");
         textRow = textRow.replace(',', '.');
+        if (textRow.startsWith("-")){
+            helpMinus = -1;
+            textRow = textRow.replaceFirst("-","");
+        }
         String operands[] = textRow.split("[-!%*/S^+]");
         if (!operands[0].isEmpty()){
             if (operands.length == 2){
-                digitA = Double.parseDouble(operands[0]);
+                digitA = (Double.parseDouble(operands[0])) * helpMinus;
                 digitB = Double.parseDouble(operands[1]);
             }else if (operands.length == 1){
-                digitA = Double.parseDouble(operands[0]);
+                digitA = (Double.parseDouble(operands[0])) * helpMinus;
             }else {
                 System.out.println(BAD.getText());
-                setElements();
             }
-        }else {
-            System.out.println(BAD.getText());
-            setElements();
         }
         return textRow;
     }

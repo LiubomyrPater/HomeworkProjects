@@ -1,4 +1,4 @@
-package enums;
+package homework8;
 
 public enum Seasons {
     WINTER,
