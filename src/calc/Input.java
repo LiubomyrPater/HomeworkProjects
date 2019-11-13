@@ -18,7 +18,6 @@ public final class Input {
         textRow = textRow.replaceAll("[^-0123456789,./*!%+S^]","");
         textRow = textRow.replace(',', '.');
         String operands[] = textRow.split("[-!%*/S^+]");
-
         if (!operands[0].isEmpty()){
             if (operands.length == 2){
                 digitA = Double.parseDouble(operands[0]);
@@ -37,6 +36,8 @@ public final class Input {
     }
 
     public void setElements() {
+        System.out.println();
+        System.out.println(ONLY_ACTION.getText());
         System.out.print(INPUT.getText());
         System.out.print(EXIT_FROM_CALC.getText());
         Scanner scanner = new Scanner(System.in);
@@ -81,8 +82,8 @@ public final class Input {
             }else {
                 action = new Plug();
             }
-            //System.out.println(Math.round(action.action() * Math.pow(10, Main.theDigit)) / Math.pow(10, Main.theDigit));
-            System.out.println(action.action());
+            System.out.println(Math.round(action.action() * Math.pow(10, Main.theDigit)) / Math.pow(10, Main.theDigit));
+            //System.out.println(action.action());
         }
     }
 }
