@@ -11,7 +11,7 @@ public enum UsersInterface {
     INPUT("input, please ", "Введіть числовий вираз "),
     ACTION_EMPTY("Unfortunately, hasn't been implemented", "Нажаль, функцію не реалізовано!"),
     ONLY_DIGIT("Only digit!!!", "Тільки цифри!!!"),
-    ONLY_ACTION("Only +  -  /  *  !  %  \u221A", "Тільки +  -  /  *  !  %  \u221A"),
+    ONLY_ACTION("Only +  -  /  *  !  %(remainder)  \u221A  S(sqrt)  ^(pow)", "Тільки +  -  /  *  !  %(остача)  \u221A  S(корінь)  ^(степінь)"),
     BAD("Something wrong, try again!", "Щось не так, спробуйте знову"),
     GOOD("", "");
 
@@ -30,5 +30,4 @@ public enum UsersInterface {
             return ukrainianText;
         }
     }
-
 }
