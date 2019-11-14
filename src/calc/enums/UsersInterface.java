@@ -1,7 +1,5 @@
 package calc.enums;
 
-import calc.Main;
-
 public enum UsersInterface {
 
     CHOICE_LANGUAGE("Choice language please (0 - English, 1 - Українська): ", "Оберіть, будь ласка, мову (0 - English, 1 - Українська)"),
@@ -15,6 +13,7 @@ public enum UsersInterface {
     BAD("Something wrong, try again!", "Щось не так, спробуйте знову"),
     GOOD("", "");
 
+    public static boolean language;
     private String englishText;
     private String ukrainianText;
 
@@ -24,7 +23,7 @@ public enum UsersInterface {
     }
 
     public String getText() {
-        if (Main.language){
+        if (language){
             return englishText;
         }else {
             return ukrainianText;
