@@ -1,44 +1,138 @@
 package homework8;
 
+import java.util.Scanner;
+
 public class Realised {
 
+    public static Months findMonth(){
+        System.out.print("\n" + "Input, please: ");
+        Scanner input = new Scanner(System.in);
+        String temp = input.next();
+        Months a = Months.NONE;
+        for (Months x: Months.values()){
+            if (temp.equalsIgnoreCase(x.toString())){
+                a = x;
+            }
+        }
+        return a;
+    }
+
     public static void isMonth(){
-        //-Перевірити чи є такий місяць (місяць вводимо з консолі, передбачити, щоб регістр букв був неважливим )
+        if (findMonth().equals(Months.NONE)){
+            System.out.println("There is no such month!");
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void sameSeasonMonth(){
-        //-Вивести всі місяці з такою ж порою року
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            String season = z.getSeasons().toString();
+            for (Months x: Months.values()){
+                if (x.getSeasons().toString().equals(season)){
+                    System.out.print(x + " ");
+                }
+            }
+        }else {
+            System.out.println("There is no such month!");
+        }
     }
 
     public static void sameDaysMonth(){
-        //-Вивести всі місяці які мають таку саму кількість днів
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            System.out.println(z.getDays());
+            for (Months x: Months.values()){
+                if (x.getDays() == z.getDays()){
+                    System.out.print(x + " ");
+                }
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void lessDaysMonth(){
-        //-Вивести на екран всі місяці які мають меншу кількість днів
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            System.out.println(z.getDays());
+            for (Months x: Months.values()){
+                if (x.getDays() < z.getDays()){
+                    System.out.print(x + " ");
+                }
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void biggerDaysMonth(){
-        //-Вивести на екран всі місяці які мають більшу кількість днів
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            System.out.println(z.getDays());
+            for (Months x: Months.values()){
+                if (x.getDays() > z.getDays()){
+                    System.out.print(x + " ");
+                }
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void nextSeason(){
-        //-Вивести на екран наступну пору року
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            if(z.getSeasons().ordinal() == 4){
+                System.out.println(Seasons.WINTER.toString());
+            }else {
+                System.out.println(Seasons.values()[z.getSeasons().ordinal() + 1]);
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void previousSeason(){
-        //-Вивести на екран попередню пору року
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            if(z.getSeasons().ordinal() == 1){
+                System.out.println(Seasons.FALL.toString());
+            }else {
+                System.out.println(Seasons.values()[z.getSeasons().ordinal() - 1]);
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 
     public static void eveningDays(){
-        //-Вивести на екран всі місяці які мають парну кількість днів
+        for (Months x: Months.values()){
+            if (x.getDays()%2 == 0){
+                System.out.print(x.toString() + " ");
+            }
+        }
     }
 
     public static void oddDays(){
-        //-Вивести на екран всі місяці які мають непарну кількість днів
+        for (Months x: Months.values()){
+            if (x.getDays()%2 != 0){
+                System.out.print(x.toString() + " ");
+            }
+        }
     }
 
     public static void isEveningDaysMonth(){
-        //-Вивести на екран чи введений з консолі місяць має парну кількість днів
+        Months z = findMonth();
+        if (!z.equals(Months.NONE)){
+            if (z.getDays()%2 == 0){
+                System.out.println(z.toString() + " is even!");
+            }else {
+                System.out.println(z.toString() + " is odd!");
+            }
+        }else {
+            System.out.println("There is such a month!");
+        }
     }
 }
