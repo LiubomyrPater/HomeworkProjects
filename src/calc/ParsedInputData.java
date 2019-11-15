@@ -5,7 +5,7 @@ public class ParsedInputData {
     private double y;
     private String act;
 
-    public ParsedInputData(String textRow) {
+    public ParsedInputData(String textRow, boolean language) {
         textRow = textRow.replaceAll("\\s+","");
         textRow = textRow.replaceAll("[^-0123456789,./*!%+S^]","");
         textRow = textRow.replace(',', '.');
@@ -23,7 +23,7 @@ public class ParsedInputData {
             }else if (operands.length == 1){
                 x = (Double.parseDouble(operands[0])) * helpMinus;
             }else {
-                PrintFrases.badInput();
+                PrintFrases.badInput(language);
             }
         }
     }

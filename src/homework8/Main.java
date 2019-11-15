@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner inputo = new Scanner(System.in);
+        System.out.println(Months.valueOf(inputo.next()));
+
         while (true){
             System.out.print(
                     "\n" +

@@ -13,7 +13,6 @@ public enum UsersInterface {
     BAD("Something wrong, try again!", "Щось не так, спробуйте знову"),
     GOOD("", "");
 
-    public static boolean language;
     private String englishText;
     private String ukrainianText;
 
@@ -22,7 +21,7 @@ public enum UsersInterface {
         this.ukrainianText = ukrainianText;
     }
 
-    public String getText() {
+    public String getText(boolean language) {
         if (language){
             return englishText;
         }else {

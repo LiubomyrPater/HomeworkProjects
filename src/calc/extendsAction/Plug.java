@@ -4,8 +4,8 @@ import calc.Action;
 import calc.PrintFrases;
 
 public final class Plug extends Action {
-    public Plug() {
-        PrintFrases.actionEmpty();
+    public Plug(boolean language) {
+        PrintFrases.actionEmpty(language);
     }
 
     @Override

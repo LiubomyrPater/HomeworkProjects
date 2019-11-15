@@ -1,12 +1,12 @@
 package calc;
 import java.util.Scanner;
-import calc.enums.UsersInterface;
 import calc.extendsAction.*;
 
 public abstract class ProgramLogic {
 
-    public static void choiceLanguage(){
-        PrintFrases.choiceLanguage();
+    public static boolean choiceLanguage(boolean language){
+        boolean recurs = true;
+        PrintFrases.choiceLanguage(language);
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNext("[01<]")){
             String temp = scanner.nextLine();
@@ -14,33 +14,36 @@ public abstract class ProgramLogic {
                 System.exit(0);
             }else{
                 if (temp.equals("1")){
-                    UsersInterface.language = false;
+                    ProgramLogic.choiceDigit(false);
+                    recurs = false;
                 }else {
-                    UsersInterface.language = true;
+                    ProgramLogic.choiceDigit(true);
+                    recurs = true;
                 }
             }
         }else {
-            PrintFrases.badInput();
-            choiceLanguage();
+            PrintFrases.badInput(language);
+            choiceLanguage(language);
         }
+        return recurs;
     }
 
-    public static void choiceDigit(){
+    public static void choiceDigit(boolean language){
         Scanner digit = new Scanner(System.in);
-        PrintFrases.choiceDigit();
+        PrintFrases.choiceDigit(language);
         if (digit.hasNextInt()){
-            calcProgram(digit.nextInt());
+            calcProgram(digit.nextInt(), language);
         }else {
-            PrintFrases.onlyDigit();
-            choiceDigit();
+            PrintFrases.onlyDigit(language);
+            choiceDigit(language);
         }
     }
 
-    private static void calcProgram(int theDigit){
-        PrintFrases.newCalcAction();
+    private static void calcProgram(int theDigit, boolean language){
+        PrintFrases.newCalcAction(language);
         Scanner scanner = new Scanner(System.in);
         if (!scanner.hasNext("[<]")){
-            ParsedInputData row = new ParsedInputData(scanner.nextLine());
+            ParsedInputData row = new ParsedInputData(scanner.nextLine(), language);
             if (row.getAct().contains("+")){
                 new Addiction(row.getX(), row.getY(), theDigit);
             }else if (row.getAct().contains("-")){
@@ -50,7 +53,7 @@ public abstract class ProgramLogic {
             }else if (row.getAct().contains("/")){
                 new Divide(row.getX(), row.getY(), theDigit);
             }else if (row.getAct().contains("!")){
-                new Plug();
+                new Plug(language);
             }else if (row.getAct().contains("%")){
                 new DivideByModul(row.getX(), row.getY(), theDigit);
             }else if (row.getAct().contains("S")) {
@@ -58,9 +61,9 @@ public abstract class ProgramLogic {
             }else if (row.getAct().contains("^")){
                 new Pow(row.getX(), row.getY(), theDigit);
             }else {
-                new Plug();
+                new Plug(language);
             }
-            ProgramLogic.calcProgram(theDigit);
+            ProgramLogic.calcProgram(theDigit,language);
         }
     }
 }
