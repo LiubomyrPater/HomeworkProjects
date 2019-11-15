@@ -1,13 +1,15 @@
 package calc.extendsAction;
 
 import calc.Action;
-import static calc.enums.UsersInterface.*;
+import calc.PrintFrases;
 
 public final class Plug extends Action {
+    public Plug() {
+        PrintFrases.actionEmpty();
+    }
 
     @Override
     public double action() {
-        System.out.println(ACTION_EMPTY.getText());
         return 0;
     }
 }

@@ -28,15 +28,16 @@ public abstract class PrintFrases {
          System.out.print(EXIT_FROM_CALC.getText());
      }
 
-     public static void oneOnerandAction(Double a, String action){
-         System.out.print(action + " "  + a + " = ");
+     public static void actionEmpty(){
+         System.out.println(ACTION_EMPTY.getText());
      }
 
-     public static void twoOperandsAction(Double a, Double b, String action){
-         System.out.print(a + " "  + action + " " + b + " = ");
+     public static void oneOperandAction(double a, String action, double result){
+         System.out.println(action + " "  + a + " = " + result);
      }
 
-     public static void result(Double result){
-         System.out.println(result);
+     public static void twoOperandsAction(double a, double b, String action, double result){
+         System.out.println(a + " "  + action + " " + b + " = " + result);
      }
+
 }

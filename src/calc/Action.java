@@ -8,11 +8,11 @@ public abstract class Action {
     public Action() {
     }
 
-    public Action(double a) {
+    public Action(double a, int theDigit) {
         this.a = a;
     }
 
-    public Action(double a, double b) {
+    public Action(double a, double b, int theDigit) {
         this.a = a;
         this.b = b;
     }

@@ -49,7 +49,7 @@ public class Realised {
                 }
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 
@@ -63,7 +63,7 @@ public class Realised {
                 }
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 
@@ -77,7 +77,7 @@ public class Realised {
                 }
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 
@@ -90,7 +90,7 @@ public class Realised {
                 System.out.println(Seasons.values()[z.getSeasons().ordinal() + 1]);
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 
@@ -103,7 +103,7 @@ public class Realised {
                 System.out.println(Seasons.values()[z.getSeasons().ordinal() - 1]);
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 
@@ -132,7 +132,7 @@ public class Realised {
                 System.out.println(z.toString() + " is odd!");
             }
         }else {
-            System.out.println("There is such a month!");
+            System.out.println("There is no such month!");
         }
     }
 }
