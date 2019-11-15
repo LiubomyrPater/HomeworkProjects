@@ -26,17 +26,14 @@ public abstract class ProgramLogic {
     }
 
     public static void choiceDigit(){
-        int theDigit;
-        while (true){
-            Scanner digit = new Scanner(System.in);
-            PrintFrases.choiceDigit();
-            if (digit.hasNextInt()){
-                theDigit = digit.nextInt();
-                break;
-            }
+        Scanner digit = new Scanner(System.in);
+        PrintFrases.choiceDigit();
+        if (digit.hasNextInt()){
+            calcProgram(digit.nextInt());
+        }else {
             PrintFrases.onlyDigit();
+            choiceDigit();
         }
-        calcProgram(theDigit);
     }
 
     private static void calcProgram(int theDigit){
