@@ -10,6 +10,7 @@ public class Main {
 
         while (true){
             ProgramLogic.choiceLanguage();
+            ProgramLogic.choiceDigit();
         }
     }
 }

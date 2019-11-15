@@ -6,29 +6,26 @@ import calc.extendsAction.*;
 public abstract class ProgramLogic {
 
     public static void choiceLanguage(){
-        while (true){
-            PrintFrases.choiceLanguage();
-            Scanner scanner = new Scanner(System.in);
-            if (scanner.hasNext("[01<]")){
-                String temp = scanner.nextLine();
-                if (temp.equals("<")){
-                    System.exit(0);
-                }else{
-                    if (temp.equals("1")){
-                        UsersInterface.language = false;
-                    }else {
-                        UsersInterface.language = true;
-                    }
+        PrintFrases.choiceLanguage();
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNext("[01<]")){
+            String temp = scanner.nextLine();
+            if (temp.equals("<")){
+                System.exit(0);
+            }else{
+                if (temp.equals("1")){
+                    UsersInterface.language = false;
+                }else {
+                    UsersInterface.language = true;
                 }
-                break;
-            }else {
-                PrintFrases.badInput();
             }
+        }else {
+            PrintFrases.badInput();
+            choiceLanguage();
         }
-        choiceDigit();
     }
 
-    private static void choiceDigit(){
+    public static void choiceDigit(){
         int theDigit;
         while (true){
             Scanner digit = new Scanner(System.in);
