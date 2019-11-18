@@ -1,4 +1,4 @@
-package homework8;
+package enums;
 
 public enum Months {
     NONE(0,Seasons.NONE),

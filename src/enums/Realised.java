@@ -1,23 +1,29 @@
-package homework8;
+package enums;
 
 import java.util.Scanner;
 
 public class Realised {
 
-    public static Months findMonth(){
+    public static Months findMonth() throws MyEnumException{
         System.out.print("\n" + "Input, please: ");
         Scanner input = new Scanner(System.in);
         String temp = input.next();
         Months a = Months.NONE;
+        boolean is = false;
         for (Months x: Months.values()){
             if (temp.equalsIgnoreCase(x.toString())){
+                is = true;
                 a = x;
             }
         }
-        return a;
+        if (is){
+            return a;
+        }else {
+            throw new MyEnumException("Wrong input!!!");
+        }
     }
 
-    public static void isMonth(){
+    public static void isMonth()throws MyEnumException{
         if (findMonth().equals(Months.NONE)){
             System.out.println("There is no such month!");
         }else {
@@ -25,7 +31,7 @@ public class Realised {
         }
     }
 
-    public static void sameSeasonMonth(){
+    public static void sameSeasonMonth()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             String season = z.getSeasons().toString();
@@ -39,7 +45,7 @@ public class Realised {
         }
     }
 
-    public static void sameDaysMonth(){
+    public static void sameDaysMonth()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             System.out.println(z.getDays());
@@ -53,7 +59,7 @@ public class Realised {
         }
     }
 
-    public static void lessDaysMonth(){
+    public static void lessDaysMonth()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             System.out.println(z.getDays());
@@ -67,7 +73,7 @@ public class Realised {
         }
     }
 
-    public static void biggerDaysMonth(){
+    public static void biggerDaysMonth()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             System.out.println(z.getDays());
@@ -81,7 +87,7 @@ public class Realised {
         }
     }
 
-    public static void nextSeason(){
+    public static void nextSeason()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             if(z.getSeasons().ordinal() == 4){
@@ -94,7 +100,7 @@ public class Realised {
         }
     }
 
-    public static void previousSeason(){
+    public static void previousSeason()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             if(z.getSeasons().ordinal() == 1){
@@ -123,7 +129,7 @@ public class Realised {
         }
     }
 
-    public static void isEveningDaysMonth(){
+    public static void isEveningDaysMonth()throws MyEnumException{
         Months z = findMonth();
         if (!z.equals(Months.NONE)){
             if (z.getDays()%2 == 0){
