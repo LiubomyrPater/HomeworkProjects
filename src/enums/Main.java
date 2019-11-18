@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        try
-            (input)
-        {
+        try(input){
             Realised.printMainMenu();
             String choice = input.next();
             switch (choice){
