@@ -4,48 +4,32 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
         try{
             while (true){
-                System.out.print(
-                        "\n" +
-                                "1 - Перевірити чи є такий місяць\n" +
-                                "2 - Вивести всі місяці з такою ж порою року\n" +
-                                "3 - Вивести всі місяці які мають таку саму кількість днів\n" +
-                                "4 - Вивести на екран всі місяці які мають меншу кількість днів\n" +
-                                "5 - Вивести на екран всі місяці які мають більшу кількість днів\n" +
-                                "6 - Вивести на екран наступну пору року\n" +
-                                "7 - Вивести на екран попередню пору року\n" +
-                                "8 - Вивести на екран всі місяці які мають парну кількість днів\n" +
-                                "9 - Вивести на екран всі місяці які мають непарну кількість днів\n" +
-                                "0 - Вивести на екран чи введений з консолі місяць має парну кількість днів\n" +
-                                "=======================\n" +
-                                "Choice, please: ");
-
+                Realised.printMainMenu();
                 Scanner input = new Scanner(System.in);
                 String choice = input.next();
                 switch (choice){
                     case "1":{
-                        Realised.isMonth();
+                        Realised.isMonth(Realised.findMonth());
                         break;
                     }case "2":{
-                        Realised.sameSeasonMonth();
+                        Realised.sameSeasonMonth(Realised.findMonth());
                         break;
                     }case "3":{
-                        Realised.sameDaysMonth();
+                        Realised.sameDaysMonth(Realised.findMonth());
                         break;
                     }case "4":{
-                        Realised.lessDaysMonth();
+                        Realised.lessDaysMonth(Realised.findMonth());
                         break;
                     }case "5":{
-                        Realised.biggerDaysMonth();
+                        Realised.biggerDaysMonth(Realised.findMonth());
                         break;
                     }case "6":{
-                        Realised.nextSeason();
+                        Realised.nextSeason(Realised.findMonth());
                         break;
                     }case "7":{
-                        Realised.previousSeason();
+                        Realised.previousSeason(Realised.findMonth());
                         break;
                     }case "8":{
                         Realised.eveningDays();
@@ -54,10 +38,10 @@ public class Main {
                         Realised.oddDays();
                         break;
                     }case "0":{
-                        Realised.isEveningDaysMonth();
+                        Realised.isEveningDaysMonth(Realised.findMonth());
                         break;
                     }default:{
-                        System.out.println("Something wrong! Try again\n" + "--------------------");
+                        System.out.println("Неіснуючий пункт меню! Спробуйте щераз\n" + "--------------------");
                     }
                 }
             }

@@ -1,7 +1,6 @@
 package enums;
 
 public enum Months {
-    NONE(0,Seasons.NONE),
     JANUARY(31, Seasons.WINTER),
     FEBRUARY(28, Seasons.WINTER),
     MARCH(31, Seasons.SPRING),
