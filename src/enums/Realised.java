@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class Realised {
 
-    public static Months findMonth() throws MyEnumException{
-        System.out.print("\n" + "Введіть, будь ласка, назву місяця: ");
-        Scanner input = new Scanner(System.in);
-        String temp = input.next();
+    public static Months findMonth(String temp) throws MyEnumException{
         Months month = Months.JANUARY;
         boolean is = false;
         for (Months x: Months.values()){
@@ -23,11 +20,11 @@ public class Realised {
         }
     }
 
-    public static void isMonth(Months temp)throws MyEnumException{
+    private static void isMonth(Months temp){
         System.out.println("Такий місяць існує!");
     }
 
-    public static void sameSeasonMonth(Months temp)throws MyEnumException{
+    private static void sameSeasonMonth(Months temp){
         String season = temp.getSeasons().toString();
         for (Months x: Months.values()){
             if (x.getSeasons().toString().equals(season)){
@@ -36,7 +33,7 @@ public class Realised {
         }
     }
 
-    public static void sameDaysMonth(Months temp)throws MyEnumException{
+    private static void sameDaysMonth(Months temp){
         System.out.println(temp.getDays());
         for (Months x: Months.values()){
             if (x.getDays() == temp.getDays()){
@@ -45,7 +42,7 @@ public class Realised {
         }
     }
 
-    public static void lessDaysMonth(Months temp)throws MyEnumException{
+    private static void lessDaysMonth(Months temp){
         System.out.println(temp.getDays());
         for (Months x: Months.values()){
             if (x.getDays() < temp.getDays()){
@@ -54,7 +51,7 @@ public class Realised {
         }
     }
 
-    public static void biggerDaysMonth(Months temp)throws MyEnumException{
+    private static void biggerDaysMonth(Months temp){
         System.out.println(temp.getDays());
         for (Months x: Months.values()){
             if (x.getDays() > temp.getDays()){
@@ -63,23 +60,23 @@ public class Realised {
         }
     }
 
-    public static void nextSeason(Months temp)throws MyEnumException{
-        if(temp.getSeasons().ordinal() == 4){
+    private static void nextSeason(Months temp){
+        if(temp.getSeasons().ordinal() == 3){
             System.out.println(Seasons.WINTER.toString());
         }else {
             System.out.println(Seasons.values()[temp.getSeasons().ordinal() + 1]);
         }
     }
 
-    public static void previousSeason(Months temp)throws MyEnumException{
-        if(temp.getSeasons().ordinal() == 1){
+    private static void previousSeason(Months temp){
+        if(temp.getSeasons().ordinal() == 0){
             System.out.println(Seasons.FALL.toString());
         }else {
             System.out.println(Seasons.values()[temp.getSeasons().ordinal() - 1]);
         }
     }
 
-    public static void eveningDays(){
+    private static void eveningDays(){
         for (Months x: Months.values()){
             if (x.getDays()%2 == 0){
                 System.out.print(x.toString() + " ");
@@ -87,7 +84,7 @@ public class Realised {
         }
     }
 
-    public static void oddDays(){
+    private static void oddDays(){
         for (Months x: Months.values()){
             if (x.getDays()%2 != 0){
                 System.out.print(x.toString() + " ");
@@ -95,7 +92,7 @@ public class Realised {
         }
     }
 
-    public static void isEveningDaysMonth(Months temp)throws MyEnumException{
+    private static void isEveningDaysMonth(Months temp){
         if (temp.getDays()%2 == 0){
             System.out.println(temp.toString() + " парний!");
         }else {
@@ -103,7 +100,7 @@ public class Realised {
         }
     }
 
-    public static void printMainMenu(){
+    private static void printMenu(){
         System.out.print(
                 "\n" +
                         "1 - Перевірити чи є такий місяць\n" +
@@ -116,8 +113,100 @@ public class Realised {
                         "8 - Вивести на екран всі місяці які мають парну кількість днів\n" +
                         "9 - Вивести на екран всі місяці які мають непарну кількість днів\n" +
                         "0 - Вивести на екран чи введений з консолі місяць має парну кількість днів\n" +
+                        "< - Вихід з програми\n" +
                         "=======================\n" +
                         "Оберіть, будь ласка, пункт меню: ");
 
+    }
+
+    public static int menu(){
+        Scanner input = new Scanner(System.in);
+        while (true){
+            printMenu();
+            String choice = input.next();
+            switch (choice) {
+                case "1": {
+                    return 1;
+                }
+                case "2": {
+                    return 2;
+                }
+                case "3": {
+                    return 3;
+                }
+                case "4": {
+                    return 4;
+                }
+                case "5": {
+                    return 5;
+                }
+                case "6": {
+                    return 6;
+                }
+                case "7": {
+                    return 7;
+                }
+                case "8": {
+                    return 9;
+                }
+                case "9": {
+                    return 9;
+                }
+                case "0": {
+                    return 0;
+                }
+                case "<":{
+                    System.exit(0);
+                }
+                default: {
+                    System.out.println("Неіснуючий пункт меню!");
+                }
+            }
+        }
+    }
+
+    public static void programChapter(int chapter, Months months){
+        switch (chapter) {
+            case 1: {
+                isMonth(months);
+                break;
+            }
+            case 2: {
+                sameSeasonMonth(months);
+                break;
+            }
+            case 3: {
+                sameDaysMonth(months);
+                break;
+            }
+            case 4: {
+                lessDaysMonth(months);
+                break;
+            }
+            case 5: {
+                biggerDaysMonth(months);
+                break;
+            }
+            case 6: {
+                nextSeason(months);
+                break;
+            }
+            case 7: {
+                previousSeason(months);
+                break;
+            }
+            case 8: {
+                eveningDays();
+                break;
+            }
+            case 9: {
+                oddDays();
+                break;
+            }
+            case 0: {
+                isEveningDaysMonth(months);
+                break;
+            }
+        }
     }
 }
