@@ -2,7 +2,7 @@ package enums;
 
 import java.util.Scanner;
 
-public class Realised {
+public abstract class Realised {
 
     public static Months findMonth(String temp) throws MyEnumException{
         Months month = Months.JANUARY;
@@ -20,7 +20,7 @@ public class Realised {
         }
     }
 
-    private static void isMonth(Months temp){
+    private static void isMonth(){
         System.out.println("Такий місяць існує!");
     }
 
@@ -119,48 +119,18 @@ public class Realised {
 
     }
 
-    public static int menu(){
-        Scanner input = new Scanner(System.in);
+    public static int menu(Scanner input){
         while (true){
             printMenu();
             String choice = input.next();
-            switch (choice) {
-                case "1": {
-                    return 1;
-                }
-                case "2": {
-                    return 2;
-                }
-                case "3": {
-                    return 3;
-                }
-                case "4": {
-                    return 4;
-                }
-                case "5": {
-                    return 5;
-                }
-                case "6": {
-                    return 6;
-                }
-                case "7": {
-                    return 7;
-                }
-                case "8": {
-                    return 9;
-                }
-                case "9": {
-                    return 9;
-                }
-                case "0": {
-                    return 0;
-                }
-                case "<":{
+            if (choice.matches("[1234567890<]")){
+                if (!choice.matches("[<]")){
+                    return Integer.valueOf(choice);
+                }else {
                     System.exit(0);
                 }
-                default: {
-                    System.out.println("Неіснуючий пункт меню!");
-                }
+            }else {
+                System.out.println("Неіснуючий пункт меню!");
             }
         }
     }
@@ -168,7 +138,7 @@ public class Realised {
     public static void programChapter(int chapter, Months months){
         switch (chapter) {
             case 1: {
-                isMonth(months);
+                isMonth();
                 break;
             }
             case 2: {

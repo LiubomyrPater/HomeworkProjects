@@ -48,4 +48,9 @@ public abstract class Realised {
 
         return temp;
     }*/
+
+    public static void menu(String text){
+
+    }
+
 }

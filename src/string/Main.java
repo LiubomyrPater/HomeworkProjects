@@ -25,20 +25,23 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input a word, please");
 
-
-        //Realised.palindrom(scanner.next().trim());
-
-
-        //System.out.println(Realised.repalaceLoudLetters(scanner.next()));
+        String text = scanner.nextLine();
 
 
-        //System.out.println(Realised.countWords(scanner.nextLine().trim()));
+
+        //Realised.palindrom(text);
 
 
-        //System.out.println(Realised.countSentence(scanner.nextLine()));
+        //System.out.println(Realised.repalaceLoudLetters(text));
 
 
-        System.out.println(Realised.theMostRepetitiveLocalWord(scanner.nextLine()));
+        //System.out.println(Realised.countWords(text));
+
+
+        //System.out.println(Realised.countSentence(text));
+
+
+        System.out.println(Realised.theMostRepetitiveLocalWord(text));
 
 
 
