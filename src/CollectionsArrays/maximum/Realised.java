@@ -42,8 +42,12 @@ public abstract class Realised {
                     "<  for exit" + "\n" +
                     ": ");
             String chapter = scanner.next();
-            if (chapter.matches("[1234]")){
-                choiceMenu(Integer.valueOf(chapter), cars, scanner);
+            if (chapter.matches("[1234<]")){
+                if (chapter.matches("[<]")){
+                    System.exit(0);
+                }else {
+                    choiceMenu(Integer.valueOf(chapter), cars, scanner);
+                }
             }else {
                 System.out.println("Only: 1 2 3 4");
             }
@@ -51,14 +55,16 @@ public abstract class Realised {
     }
 
     private static Comparator choiceField(Scanner scanner){
+
         while (true){
+            scanner.reset();
             System.out.print("Input name of field for sorting (engine  helm  year): ");
-            String field = scanner.nextLine();
+            String field = scanner.next();
             if (field.matches("engine")){
                 return new CarEngineComparator();
             }else if (field.matches("helm")){
                 return new CarHelmComparator();
-            }else if (field.matches("Year")){
+            }else if (field.matches("year")){
                 return new CarYearComparator();
             }else{
                 System.out.println("Try again");
