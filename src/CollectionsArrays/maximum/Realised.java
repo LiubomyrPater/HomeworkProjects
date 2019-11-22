@@ -76,18 +76,24 @@ public abstract class Realised {
     private static void choiceMenu(int chapter, Car[][] cars, Scanner scanner, Random random){
         switch (chapter){
             case 1:{
-                System.out.println(Arrays.deepToString(cars));
+                for (int i = 0; i < cars.length; i++) {
+                    System.out.println(Arrays.toString(cars[i]));
+                }
                 break;
             }case 2:{
                 theSameValue(cars, random);
                 break;
             }case 3:{
                 Car[][] cars1 = sortByAny(cars, true, choiceField(scanner));
-                System.out.println(Arrays.deepToString(cars1));
+                for (int i = 0; i < cars1.length; i++) {
+                    System.out.println(Arrays.toString(cars1[i]));
+                }
                 break;
             }case 4:{
                 Car[][] cars1 = sortByAny(cars, false, choiceField(scanner));
-                System.out.println(Arrays.deepToString(cars1));
+                for (int i = 0; i < cars1.length; i++) {
+                    System.out.println(Arrays.toString(cars1[i]));
+                }
                 break;
             }
         }
