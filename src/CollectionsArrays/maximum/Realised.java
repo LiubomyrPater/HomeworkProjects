@@ -3,11 +3,14 @@ package CollectionsArrays.maximum;
 import CollectionsArrays.maximum.carComparators.CarEngineComparator;
 import CollectionsArrays.maximum.carComparators.CarHelmComparator;
 import CollectionsArrays.maximum.carComparators.CarYearComparator;
+import java.util.*;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+//    Створити консольне меню, яке буде мати наступні елементи меню:
+//    а) Вивести toString() даних елементів масиву на консоль. ( deepToString() )
+//    б) Для всіх обєктів даного масиву засетати одне значення будьякого поля класу Авто (fill())
+//    в) відсортувати за спаданням всі обєкти за введеним полем
+//    г) відсортувати за зростанням всі обєкти за введеним полем
+
 
 public abstract class Realised {
 
@@ -24,19 +27,11 @@ public abstract class Realised {
         return cars;
     }
 
-//    Створити консольне меню, яке буде мати наступні елементи меню:
-//    а) Вивести toString() даних елементів масиву на консоль. ( deepToString() )
-//    б) Для всіх обєктів даного масиву засетати одне значення будьякого поля класу Авто (fill())
-//    в) відсортувати за спаданням всі обєкти за введеним полем
-//    г) відсортувати за зростанням всі обєкти за введеним полем
-
-
-
-    public static void mainMenu(Scanner scanner, Car[][] cars){
+    public static void mainMenu(Scanner scanner, Car[][] cars, Random random){
         while (true){
             System.out.print("\n" + "Choice, please - " + "\n" +
                     "1) Print all array" + "\n" +
-                    "2)                " + "\n" +
+                    "2) Same field" + "\n" +
                     "3) Sorting in descending order by any field" + "\n" +
                     "4) Sorting in ascending order by any field" + "\n" +
                     "<  for exit" + "\n" +
@@ -46,7 +41,7 @@ public abstract class Realised {
                 if (chapter.matches("[<]")){
                     System.exit(0);
                 }else {
-                    choiceMenu(Integer.valueOf(chapter), cars, scanner);
+                    choiceMenu(Integer.valueOf(chapter), cars, scanner, random);
                 }
             }else {
                 System.out.println("Only: 1 2 3 4");
@@ -72,13 +67,19 @@ public abstract class Realised {
         }
     }
 
-    private static void choiceMenu(int chapter, Car[][] cars, Scanner scanner){
+    private static void theSameValue(Car[][] cars, Random random){
+        for (int i = 0; i <cars.length ; i++) {
+            Arrays.fill(cars[i], new Car(random, 1900));
+        }
+    }
+
+    private static void choiceMenu(int chapter, Car[][] cars, Scanner scanner, Random random){
         switch (chapter){
             case 1:{
                 System.out.println(Arrays.deepToString(cars));
                 break;
             }case 2:{
-                System.out.println("Not realised, sorry");
+                theSameValue(cars, random);
                 break;
             }case 3:{
                 Car[][] cars1 = sortByAny(cars, true, choiceField(scanner));

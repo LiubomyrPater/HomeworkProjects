@@ -12,6 +12,12 @@ public class Car implements Comparable<Car>{
     private Helm helm;
     private Engine engine;
 
+    public Car(Random random, Integer year) {
+        this.year = year;
+        this.helm = new Helm(random);
+        this.engine = new Engine(random);
+    }
+
     public Car(Random random) {
         this.year = (random.nextInt(70) + 1950);
         this.helm = new Helm(random);
@@ -28,6 +34,10 @@ public class Car implements Comparable<Car>{
 
     public Engine getEngine() {
         return engine;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     @Override
