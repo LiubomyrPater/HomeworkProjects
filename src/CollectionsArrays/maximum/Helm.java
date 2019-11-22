@@ -10,7 +10,7 @@ public class Helm implements Comparable<Helm>{
 
     public Helm(Random random) {
         this.diametr = (random.nextInt(10) + 30);
-        if (random.nextInt(1) == 0){
+        if (random.nextInt(2) == 1){
             this.material = Material.ALKANTARA;
         }else {
             this.material = Material.LEATHER;
@@ -32,5 +32,13 @@ public class Helm implements Comparable<Helm>{
         }else {
             return this.getDiametr() - o.getDiametr();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "diametr " + diametr +
+                ", material " + material +
+                '}';
     }
 }

@@ -45,4 +45,12 @@ public class Engine implements Comparable<Engine>{
 
         return Objects.hash(cylinders, horspower);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "cylinders " + cylinders +
+                ", horspower " + horspower +
+                '}';
+    }
 }

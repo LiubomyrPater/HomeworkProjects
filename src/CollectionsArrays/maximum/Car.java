@@ -56,4 +56,13 @@ public class Car implements Comparable<Car>{
         }
         return this.getYear().compareTo(o.getYear());
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "year " + year +
+                ", helm " + helm +
+                ", engine " + engine +
+                '}';
+    }
 }
