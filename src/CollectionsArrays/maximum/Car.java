@@ -36,9 +36,7 @@ public class Car implements Comparable<Car>{
         return engine;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
+
 
     @Override
     public boolean equals(Object o) {
