@@ -3,7 +3,6 @@ package CollectionsArrays.maximum;
 import java.util.Objects;
 import java.util.Random;
 
-// Двигун володіє полями : кількість циліндрів.
 public class Engine implements Comparable<Engine>{
 
     private Integer cylinders;

@@ -3,9 +3,6 @@ package CollectionsArrays.maximum;
 import java.util.Objects;
 import java.util.Random;
 
-// Авто володіє полями :
-// Кількість кінських сил, рік випуску
-
 public class Car implements Comparable<Car>{
 
     private Integer year;
