@@ -1,8 +1,10 @@
 package iterator;
 
+import service.Input;
+
 public abstract class Realised {
 
-    public static void prinMainMenu(){
+    public static void printMainMenu(){
         System.out.println("\n" +
                                     "Введіть 1 щоб додати фракцію\n" +
                                     "Введіть 2 щоб видалити конкретну фракцію\n" +
@@ -19,7 +21,35 @@ public abstract class Realised {
     }
 
     public static void choiceChapter(){
-
+        String chapter = Input.getScannerTrueValue(Input.VariableTypes.STRING);
+        switch (chapter.trim()){
+            case "1":{
+                break;
+            }case "2":{
+                break;
+            }case "3":{
+                break;
+            }case "4":{
+                break;
+            }case "5":{
+                break;
+            }case "6":{
+                break;
+            }case "7":{
+                break;
+            }case "8":{
+                break;
+            }case "9":{
+                break;
+            }case "0":{
+                break;
+            }case "<":{
+                System.exit(0);
+            }default:{
+                System.out.println("Спробуйте знову");
+                choiceChapter();
+            }
+        }
     }
 
     private static Fraction choiceFraction(){

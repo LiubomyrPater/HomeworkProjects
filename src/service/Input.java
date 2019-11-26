@@ -118,7 +118,17 @@ public abstract class Input {
         return 'Q';
     }
 
-    private static String getInputTrueString(){return "a";}
+    private static String getInputTrueString(){
+        while (true){
+            String temp = scanner.nextLine();
+            if (!temp.isEmpty()){
+                if (!temp.matches("\\s+")){
+                    return temp;
+                }
+            }
+        }
+    }
+
     private static String getInputTrueString(String it, String any){return "alkjlas";}
 
 
