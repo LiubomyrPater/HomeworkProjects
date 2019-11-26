@@ -12,66 +12,48 @@ public abstract class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static <T> T getScannerTrueValue(VariableTypes variableTypes){
-        Object o = new Object();
         switch (variableTypes){
             case BYTE:{
-                o = getInputTrueByte();
-                break;
+                return (T) getInputTrueByte();
             }case SHORT:{
-                o = getInputTrueShort();
-                break;
+                return (T) getInputTrueShort();
             }case INTEGER: {
-                o = getInputTrueInt();
-                break;
+                return (T) getInputTrueInt();
             }case LONG:{
-                o = getInputTrueLong();
-                break;
+                return (T) getInputTrueLong();
             }case CHAR:{
-                o = getInputTrueChar();
-                break;
+                return (T) getInputTrueChar();
             }case FLOAT:{
-                o = getInputTrueFloat();
-                break;
+                return (T) getInputTrueFloat();
             }case DOUBLE:{
-                o = getInputTrueDouble();
-                break;
+                return (T) getInputTrueDouble();
             }case STRING:{
-                o = getInputTrueString();
-                break;
+                return (T) getInputTrueString();
             }
         }
-        return (T) o;
+        return null;
     }
     public static <T> T getScannerTrueValue(VariableTypes variableTypes, T from, T to){
-        Object o = new Object();
         switch (variableTypes){
             case BYTE:{
-                o = getInputTrueByte((byte)from, (byte)to);
-                break;
+                return (T) getInputTrueByte((byte)from, (byte)to);
             }case SHORT:{
-                o = getInputTrueShort((short)from, (short)to);
-                break;
+                return (T) getInputTrueShort((short)from, (short)to);
             }case INTEGER: {
-                o = getInputTrueInt((int)from, (int)to);
-                break;
+                return (T) getInputTrueInt((int)from, (int)to);
             }case LONG:{
-                o = getInputTrueLong((long)from, (long)to);
-                break;
+                return (T) getInputTrueLong((long)from, (long)to);
             }case CHAR:{
-                o = getInputTrueChar((char)from, (char)to);
-                break;
+                return (T) getInputTrueChar((char)from, (char)to);
             }case FLOAT:{
-                o = getInputTrueFloat((float)from, (float)to);
-                break;
+                return (T) getInputTrueFloat((float)from, (float)to);
             }case DOUBLE:{
-                o = getInputTrueDouble((double)from, (double)to);
-                break;
+                return (T) getInputTrueDouble((double)from, (double)to);
             }case STRING:{
-                o = getInputTrueString((String)from, (String)to);
-                break;
+                return (T) getInputTrueString((String)from, (String)to);
             }
         }
-        return (T) o;
+        return null;
     }
 
     private static Byte getInputTrueByte(){return 2;}
