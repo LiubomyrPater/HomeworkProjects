@@ -2,10 +2,7 @@ package iterator;
 
 import service.Input;
 
-import java.util.Random;
-
-
-public abstract class Realised {
+public abstract class Menu {
 
     public static void printMainMenu(){
         System.out.println("\n" +
@@ -48,12 +45,12 @@ public abstract class Realised {
                 break;
             }case "6":{
                 Fraction temp = VR.getOne().choiceFraction();
-                Deputy deputy = choiceDeputy();
+                Deputy deputy = VR.getOne().choiceDeputy();
                 temp.addDeputyInFraction(deputy);
                 break;
             }case "7":{
                 Fraction temp = VR.getOne().choiceFraction();
-                Deputy deputy = choiceDeputy();
+                Deputy deputy = VR.getOne().choiceDeputy();
                 temp.delDeputyFromFraction(deputy);
                 break;
             }case "8":{
@@ -65,7 +62,7 @@ public abstract class Realised {
                 temp.theBigestKhabar();
                 break;
             }case "0": {
-                choiceDeputy().givKhabar();
+                VR.getOne().choiceDeputy().givKhabar();
                 break;
             }case "+":{
                 VR.getOne().viewDeputies();
@@ -80,11 +77,7 @@ public abstract class Realised {
         return program;
     }
 
-    private static Deputy choiceDeputy()
-    {
-        Random random = new Random();
-        return new Deputy(random);
-    }
+
 
 
 

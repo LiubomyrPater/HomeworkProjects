@@ -1,5 +1,7 @@
 package iterator;
 
+import iterator.enums.Name;
+import iterator.enums.SecondName;
 import service.Input;
 
 import java.util.Random;
@@ -17,6 +19,19 @@ public class Deputy extends Person{
         }else {
             this.khabar = false;
         }
+    }
+
+    public Deputy(Name name, SecondName secondName) {
+        super(name, secondName);
+    }
+
+
+    public boolean isKhabar() {
+        return khabar;
+    }
+
+    public int getValueKhabar() {
+        return valueKhabar;
     }
 
     public void setValueKhabar(int valueKhabar) {
@@ -40,6 +55,16 @@ public class Deputy extends Person{
                 setValueKhabar(value);
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
