@@ -71,7 +71,6 @@ public class VR {
         if (findFraction){
             return fractions.get(numberFraction);
         }else {
-            System.out.println("Фракцію не знайдено");
             return null;
         }
     }
@@ -81,26 +80,29 @@ public class VR {
         String wholeName = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
         String[] names = wholeName.split("\\s+");
 
+        try {
+            Name name = Name.valueOf(names[0].trim().toUpperCase());
+            SecondName secondName = SecondName.valueOf(names[1].trim().toUpperCase());
 
-        Name name = Name.valueOf(names[0].trim());
-        SecondName secondName = SecondName.valueOf(names[1].trim());
-
-
-        Deputy temp = new Deputy(name, secondName);
-        Iterator<Deputy> deputyIterator = deputies.iterator();
-        int numberDeputy = -1;
-        boolean findDeputy = false;
-        while (deputyIterator.hasNext()){
-            numberDeputy += 1;
-            if (deputyIterator.next().equals(temp)){
-                findDeputy = true;
-                break;
+            Deputy temp = new Deputy(name, secondName);
+            Iterator<Deputy> deputyIterator = deputies.iterator();
+            int numberDeputy = -1;
+            boolean findDeputy = false;
+            while (deputyIterator.hasNext()){
+                numberDeputy += 1;
+                if (deputyIterator.next().equals(temp)){
+                    findDeputy = true;
+                    break;
+                }
             }
-        }
-        if (findDeputy){
-            return deputies.get(numberDeputy);
-        }else {
-            System.out.println("Депутата не знайдено");
+            if (findDeputy){
+                return deputies.get(numberDeputy);
+            }else {
+                System.out.println("Депутата не знайдено");
+                return null;
+            }
+
+        }catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e){
             return null;
         }
     }
