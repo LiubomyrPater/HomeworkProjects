@@ -2,11 +2,11 @@ package iterator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Fraction {
 
     private String name;
-    private int count = 0;
     private List<Deputy> deputies = new ArrayList<>();
 
     public Fraction(String name) {
@@ -16,22 +16,25 @@ public class Fraction {
 
 
     //    додати депутата(вводимо з консолі)
-    private static void addDeputyInFraction(Fraction fraction, Deputy deputy){}
+    public void addDeputyInFraction(Deputy deputy){}
 
     //    видалити депутата(вводимо з консолі)
-    private static void delDeputyFromFraction(Fraction fraction, Deputy deputy){}
+    public void delDeputyFromFraction(Deputy deputy){}
 
     //    вивести всіх хабарників у фракції
-    private static void viewAllKhabar(){}
+    public void viewAllKhabar(){}
 
     //    вивести найбільшого хабарника у фракції
-    private static void theBigestKhabar(){}
+    public Deputy theBigestKhabar(){
+        Random random =new Random();
+        return new Deputy(random);
+    }
 
     //    вивести всіх депутатів фракції
-    private static void viewDeputyFraction(Fraction fraction){}
+    public void viewDeputyFraction(){}
 
     //    очистити всю фракцію від депутатів
-    private static void clearFraction(Fraction fraction){}
+    public void clearFraction(){}
 
 
 }

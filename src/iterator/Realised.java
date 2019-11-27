@@ -2,6 +2,9 @@ package iterator;
 
 import service.Input;
 
+import java.util.Random;
+
+
 public abstract class Realised {
 
     public static void printMainMenu(){
@@ -15,50 +18,72 @@ public abstract class Realised {
                                     "Введіть 7 щоб видалити депутата з фракції\n" +
                                     "Введіть 8 щоб вивести список хабарників у фракції\n" +
                                     "Введіть 9 щоб вивести найбільшого хабарника у фракції\n" +
-                                    "Введіть 0 щоб вивести найбільшого хабарника у фракції\n" +
+                                    "Введіть 0 щоб запропонувати депутату хабар\n" +
+                                    "Введіть + щоб вивести всіх депутатів Верховної ради\n" +
                                     "Введіть < щоб вийти із програми\n" +
                                     ": ");
     }
 
-    public static void choiceChapter(){
-        String chapter = Input.getScannerTrueValue(Input.VariableTypes.STRING);
+    public static Boolean choiceChapter(){
+        Boolean program = true;
+        String chapter = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
         switch (chapter.trim()){
             case "1":{
+                VR.getOne().addFraction();
                 break;
             }case "2":{
+                Fraction temp = VR.getOne().choiceFraction();
+                VR.getOne().delFraction(temp);
                 break;
             }case "3":{
+                VR.getOne().viewAllFractions();
                 break;
             }case "4":{
+                Fraction temp = VR.getOne().choiceFraction();
+                temp.clearFraction();
                 break;
             }case "5":{
+                Fraction temp = VR.getOne().choiceFraction();
+                temp.viewDeputyFraction();
                 break;
             }case "6":{
+                Fraction temp = VR.getOne().choiceFraction();
+                Deputy deputy = choiceDeputy();
+                temp.addDeputyInFraction(deputy);
                 break;
             }case "7":{
+                Fraction temp = VR.getOne().choiceFraction();
+                Deputy deputy = choiceDeputy();
+                temp.delDeputyFromFraction(deputy);
                 break;
             }case "8":{
+                Fraction temp = VR.getOne().choiceFraction();
+                temp.viewAllKhabar();
                 break;
             }case "9":{
+                Fraction temp = VR.getOne().choiceFraction();
+                temp.theBigestKhabar();
                 break;
-            }case "0":{
+            }case "0": {
+                choiceDeputy().givKhabar();
+                break;
+            }case "+":{
+                VR.getOne().viewDeputies();
                 break;
             }case "<":{
-                System.exit(0);
+                program = false;
+                break;
             }default:{
                 System.out.println("Спробуйте знову");
-                choiceChapter();
             }
         }
+        return program;
     }
 
-    private static Fraction choiceFraction(){
-        return new Fraction("saddsa");
-    }
-
-
-    private static Deputy choiceDeputy(){
-        return new Deputy("sd","sd",65,86,85,true);
+    private static Deputy choiceDeputy()
+    {
+        Random random = new Random();
+        return new Deputy(random);
     }
 
 

@@ -6,13 +6,49 @@ import java.util.Scanner;
 public abstract class Input {
 
     public enum VariableTypes{
-        BYTE, SHORT, INTEGER, FLOAT, LONG, DOUBLE, CHAR, STRING
+        BYTE,
+        SHORT,
+        INTEGER,
+        FLOAT,
+        LONG,
+        DOUBLE,
+        CHAR,
+        STRING
     }
+
+    public enum ParametricableTypes{
+        LONG,
+        DOUBLE,
+        CHAR
+    }
+
+    public enum SimpleTypes {
+        LONG,
+        DOUBLE,
+        STRING
+    }
+
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static <T> T getScannerTrueValue(VariableTypes variableTypes){
-        switch (variableTypes){
+
+    public static <T> T getScannerUncheckedValue(SimpleTypes types){
+        switch (types){
+            case LONG: {
+                return (T) (Long)scanner.nextLong();
+            }case DOUBLE:{
+                return (T) (Double)scanner.nextDouble();
+            }case STRING:{
+                return (T) scanner.nextLine();
+            }
+        }
+        return null;
+    }
+
+
+
+    public static <T> T getScannerCheckedValue(VariableTypes types){
+        switch (types){
             case BYTE:{
                 return (T) getInputTrueByte();
             }case SHORT:{
@@ -20,47 +56,23 @@ public abstract class Input {
             }case INTEGER: {
                 return (T) getInputTrueInt();
             }case LONG:{
-                return (T) getInputTrueLong();
+                return (T) getLong();
             }case CHAR:{
-                return (T) getInputTrueChar();
+                return (T) getChar();
             }case FLOAT:{
                 return (T) getInputTrueFloat();
             }case DOUBLE:{
-                return (T) getInputTrueDouble();
+                return (T) getDouble();
             }case STRING:{
                 return (T) getInputTrueString();
             }
         }
         return null;
     }
-    public static <T> T getScannerTrueValue(VariableTypes variableTypes, T from, T to){
-        switch (variableTypes){
-            case BYTE:{
-                return (T) getInputTrueByte((byte)from, (byte)to);
-            }case SHORT:{
-                return (T) getInputTrueShort((short)from, (short)to);
-            }case INTEGER: {
-                return (T) getInputTrueInt((int)from, (int)to);
-            }case LONG:{
-                return (T) getInputTrueLong((long)from, (long)to);
-            }case CHAR:{
-                return (T) getInputTrueChar((char)from, (char)to);
-            }case FLOAT:{
-                return (T) getInputTrueFloat((float)from, (float)to);
-            }case DOUBLE:{
-                return (T) getInputTrueDouble((double)from, (double)to);
-            }case STRING:{
-                return (T) getInputTrueString((String)from, (String)to);
-            }
-        }
-        return null;
-    }
 
     private static Byte getInputTrueByte(){return 2;}
-    private static Byte getInputTrueByte(Byte from, Byte to){return  2;}
 
     private static Short getInputTrueShort(){return 2;}
-    private static Short getInputTrueShort(Short from, Short to){return 2;}
 
     private static Integer getInputTrueInt() {
         Integer temp;
@@ -76,22 +88,25 @@ public abstract class Input {
         //scanner.close();
         return temp;
     }
-    private static Integer getInputTrueInt(Integer from, Integer to) {
-        int x = getInputTrueInt();
-        if (x < from || x > to){
-            System.out.println("Only from " + from + " to " + to);
-            getInputTrueInt(from, to);
+
+    private static Long getLong(){
+        Long temp;
+        while (true){
+            try {
+                temp = scanner.nextLong();
+                break;
+            }catch (InputMismatchException e){
+                scanner.nextLine();//empty scanner!!!!!
+                System.out.println("Only natural numbers!!!");
+            }
         }
-        return x;
+        //scanner.close();
+        return temp;
     }
 
-    private static Long getInputTrueLong(){return 4L;}
-    private static Long getInputTrueLong(Long from, Long to){return 4L;}
-
     private static Float getInputTrueFloat(){return 3F;}
-    private static Float getInputTrueFloat(Float from, Float to){return 3F;}
 
-    private static Double getInputTrueDouble() {
+    private static Double getDouble() {
         Double temp;
         while (true){
             try {
@@ -105,16 +120,8 @@ public abstract class Input {
         scanner.close();
         return temp;
     }
-    private static Double getInputTrueDouble(Double from, Double to) {
 
-
-        return 5.5;
-    }
-
-    private static Character getInputTrueChar(){
-        return 'Q';
-    }
-    private static Character getInputTrueChar(Character from, Character to){
+    private static Character getChar(){
         return 'Q';
     }
 
@@ -129,7 +136,39 @@ public abstract class Input {
         }
     }
 
-    private static String getInputTrueString(String it, String any){return "alkjlas";}
+
+
+    public static <T> T getScannerParametricValue(ParametricableTypes types, T from, T to){
+        switch (types){
+            case LONG:{
+                return (T) getLong((long)from, (long)to);
+            }case CHAR:{
+                return (T) getChar((char)from, (char)to);
+            }case DOUBLE: {
+                return (T) getDouble((double) from, (double) to);
+            }
+        }
+        return null;
+    }
+
+    private static Long getLong(Long from, Long to){
+        Long x = getLong();
+        if (x < from || x > to){
+            System.out.println("Only from " + from + " to " + to);
+            getLong(from, to);
+        }
+        return x;
+    }
+
+    private static Double getDouble(Double from, Double to) {
+
+
+        return 5.5;
+    }
+
+    private static Character getChar(Character from, Character to){
+        return 'Q';
+    }
 
 
 }

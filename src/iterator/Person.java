@@ -1,83 +1,27 @@
 package iterator;
 
-import java.util.Objects;
+import iterator.enums.Name;
+import iterator.enums.SecondName;
+import java.util.Random;
 
 public class Person {
 
-    private String name;
-    private String secondName;
+    private Name name;
+    private SecondName secondName;
     private int age;
     private int weight;
     private int heigt;
 
-    public Person(String name, String secondName, int age, int weight, int heigt) {
-        this.name = name;
-        this.secondName = secondName;
-        this.age = age;
-        this.weight = weight;
-        this.heigt = heigt;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getHeigt() {
-        return heigt;
-    }
-
-    public void setHeigt(int heigt) {
-        this.heigt = heigt;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(name, person.name) &&
-                Objects.equals(secondName, person.secondName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(name, secondName);
+    public Person(Random random) {
+        this.name = Name.values()[random.nextInt(Name.values().length)];
+        this.secondName = SecondName.values()[random.nextInt(SecondName.values().length)];
+        this.age = random.nextInt(40) + 20;
+        this.weight = random.nextInt(60) + 60;
+        this.heigt = random.nextInt(30) + 150;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", secondName='" + secondName + '\'' +
-                '}';
+        return name + " " + secondName + " ";
     }
 }
