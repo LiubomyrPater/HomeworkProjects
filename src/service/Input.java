@@ -15,7 +15,7 @@ public abstract class Input {
         CHAR,
         STRING
     }
-
+/*
     public enum ParametricableTypes{
         LONG,
         DOUBLE,
@@ -26,13 +26,13 @@ public abstract class Input {
         LONG,
         DOUBLE,
         STRING
-    }
+    }*/
 
 
     private static final Scanner scanner = new Scanner(System.in);
 
 
-    public static <T> T getScannerUncheckedValue(SimpleTypes types){
+    /*public static <T> T getScannerUncheckedValue(SimpleTypes types){
         switch (types){
             case LONG: {
                 return (T) (Long)scanner.nextLong();
@@ -43,33 +43,33 @@ public abstract class Input {
             }
         }
         return null;
-    }
+    }*/
 
 
 
     public static <T> T getScannerCheckedValue(VariableTypes types){
         switch (types){
             case BYTE:{
-                return (T) getInputTrueByte();
+                //return (T) getInputTrueByte();
             }case SHORT:{
-                return (T) getInputTrueShort();
+                //return (T) getInputTrueShort();
             }case INTEGER: {
-                return (T) getInputTrueInt();
+                //return (T) getInputTrueInt();
             }case LONG:{
-                return (T) getLong();
+                //return (T) getLong();
             }case CHAR:{
-                return (T) getChar();
+                //return (T) getChar();
             }case FLOAT:{
-                return (T) getInputTrueFloat();
+                //return (T) getInputTrueFloat();
             }case DOUBLE:{
-                return (T) getDouble();
+               // return (T) getDouble();
             }case STRING:{
                 return (T) getInputTrueString();
             }
         }
         return null;
     }
-
+/*
     private static Byte getInputTrueByte(){return 2;}
 
     private static Short getInputTrueShort(){return 2;}
@@ -123,7 +123,7 @@ public abstract class Input {
 
     private static Character getChar(){
         return 'Q';
-    }
+    }*/
 
     private static String getInputTrueString(){
         while (true){
@@ -138,7 +138,7 @@ public abstract class Input {
 
 
 
-    public static <T> T getScannerParametricValue(ParametricableTypes types, T from, T to){
+/*    public static <T> T getScannerParametricValue(ParametricableTypes types, T from, T to){
         switch (types){
             case LONG:{
                 return (T) getLong((long)from, (long)to);
@@ -168,7 +168,7 @@ public abstract class Input {
 
     private static Character getChar(Character from, Character to){
         return 'Q';
-    }
+    }*/
 
 
 }
