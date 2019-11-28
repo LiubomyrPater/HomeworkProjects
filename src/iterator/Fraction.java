@@ -10,23 +10,23 @@ public class Fraction {
 
     private List<Deputy> deputies = new ArrayList<>();
 
-    public Fraction(String name) {
+    protected Fraction(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public void addDeputyInFraction(Deputy deputy){
+    protected void addDeputyInFraction(Deputy deputy){
         deputies.add(deputy);
     }
 
-    public void delDeputyFromFraction(Deputy deputy){
+    protected void delDeputyFromFraction(Deputy deputy){
         deputies.remove(deputy);
     }
 
-    public void viewAllKhabar(){
+    protected void viewAllKhabar(){
         Iterator<Deputy> deputyIterator = deputies.iterator();
         while (deputyIterator.hasNext()){
             Deputy temp = deputyIterator.next();
@@ -36,19 +36,19 @@ public class Fraction {
         }
     }
 
-    public void theBigestKhabar(){
+    protected void theBigestKhabar(){
         deputies.sort(new DeputyKhabarComparator());
         System.out.println(deputies.get(0));
     }
 
-    public void viewDeputyFraction(){
+    protected void viewDeputyFraction(){
         Iterator<Deputy> deputyIterator = deputies.iterator();
         while (deputyIterator.hasNext()){
             System.out.println(deputyIterator.next());
         }
     }
 
-    public void clearFraction(){
+    protected void clearFraction(){
         this.deputies.clear();
     }
 

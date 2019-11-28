@@ -1,10 +1,44 @@
 package service;
 
 import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
-public abstract class Input {
+public final class Input {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
+
+    public static int getInt(){
+        int temp = 0;
+        try {
+            temp = scanner.nextInt();
+        }catch (InputMismatchException e){
+            scanner.nextLine();
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    public static float getFloat(){
+        float temp = 0;
+        try {
+            temp = scanner.nextFloat();
+        }catch (InputMismatchException e){
+            scanner.nextLine();
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    public static String getString(){
+        return scanner.nextLine();
+    }
+
+
+
+
+/*
     public enum VariableTypes{
         BYTE,
         SHORT,
@@ -15,7 +49,7 @@ public abstract class Input {
         CHAR,
         STRING
     }
-/*
+
     public enum ParametricableTypes{
         LONG,
         DOUBLE,
@@ -26,13 +60,12 @@ public abstract class Input {
         LONG,
         DOUBLE,
         STRING
-    }*/
+    }
 
 
-    private static final Scanner scanner = new Scanner(System.in);
 
 
-    /*public static <T> T getScannerUncheckedValue(SimpleTypes types){
+    public static <T> T getScannerUncheckedValue(SimpleTypes types){
         switch (types){
             case LONG: {
                 return (T) (Long)scanner.nextLong();
@@ -43,7 +76,7 @@ public abstract class Input {
             }
         }
         return null;
-    }*/
+    }
 
 
 
@@ -69,12 +102,16 @@ public abstract class Input {
         }
         return null;
     }
-/*
-    private static Byte getInputTrueByte(){return 2;}
 
-    private static Short getInputTrueShort(){return 2;}
+    private static Byte getInputTrueByte(){
+        return 2;
+    }
 
-    private static Integer getInputTrueInt() {
+    private static Short getInputTrueShort(){
+        return 2;
+    }
+
+    private static Integer getInputTrueInt(){
         Integer temp;
         while (true){
             try {
@@ -104,9 +141,11 @@ public abstract class Input {
         return temp;
     }
 
-    private static Float getInputTrueFloat(){return 3F;}
+    private static Float getInputTrueFloat(){
+        return 3F;
+    }
 
-    private static Double getDouble() {
+    private static Double getDouble(){
         Double temp;
         while (true){
             try {
@@ -123,7 +162,7 @@ public abstract class Input {
 
     private static Character getChar(){
         return 'Q';
-    }*/
+    }
 
     private static String getInputTrueString(){
         while (true){
@@ -138,7 +177,7 @@ public abstract class Input {
 
 
 
-/*    public static <T> T getScannerParametricValue(ParametricableTypes types, T from, T to){
+    public static <T> T getScannerParametricValue(ParametricableTypes types, T from, T to){
         switch (types){
             case LONG:{
                 return (T) getLong((long)from, (long)to);
@@ -160,9 +199,7 @@ public abstract class Input {
         return x;
     }
 
-    private static Double getDouble(Double from, Double to) {
-
-
+    private static Double getDouble(Double from, Double to){
         return 5.5;
     }
 

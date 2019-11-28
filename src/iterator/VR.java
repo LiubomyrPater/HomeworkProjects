@@ -17,47 +17,47 @@ public class VR {
 
     private VR(){}
 
-    public static VR getOne(){
+    protected static VR getOne(){
         if (one == null){
             one = new VR();
         }
         return one;
     }
 
-    public void viewDeputies() {
+    protected void viewDeputies() {
         for (Deputy x : deputies) {
             System.out.println(x);
         }
     }
 
-    public void createDeputies(Random random){
-        for (int i = 0; i <450 ; i++) {
+    protected void createDeputies(Random random){
+        for (int i = 0; i <50 ; i++) {
             deputies.add(new Deputy(random));
         }
     }
 
-    public void addFraction(){
+    protected void addFraction(){
         System.out.print("Введіть назву нової фракці: ");
-        String name = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
+        String name = Input.getString();
         one.fractions.add(new Fraction(name));
     }
 
-    public void delFraction(Fraction fraction){
+    protected void delFraction(Fraction fraction){
         if (fraction != null){
             fractions.remove(fraction);
         }
     }
 
-    public void viewAllFractions(){
+    protected void viewAllFractions(){
         Iterator<Fraction> fractionIterator = fractions.iterator();
         while (fractionIterator.hasNext()){
             System.out.println(fractionIterator.next());
         }
     }
 
-    public Fraction choiceFraction(){
+    protected Fraction choiceFraction(){
         System.out.print("Введіть назву фракці: ");
-        String name = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
+        String name = Input.getString();
         Iterator<Fraction> fractionIterator = fractions.iterator();
         int numberFraction = -1;
         boolean findFraction = false;
@@ -71,13 +71,14 @@ public class VR {
         if (findFraction){
             return fractions.get(numberFraction);
         }else {
+            System.out.println("Фракцію не знайдено");
             return null;
         }
     }
 
-    public Deputy choiceDeputy(){
+    protected Deputy choiceDeputy(){
         System.out.print("Введіть ім'я та прізвище депутата: ");
-        String wholeName = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
+        String wholeName = Input.getString();
         String[] names = wholeName.split("\\s+");
 
         try {
@@ -103,6 +104,7 @@ public class VR {
             }
 
         }catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e){
+            System.out.println("Депутата не знайдено");
             return null;
         }
     }

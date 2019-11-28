@@ -12,43 +12,35 @@ public class Deputy extends Person{
     private boolean khabar;
     private int valueKhabar;
 
-    public Deputy(Random random) {
+    protected Deputy(Random random) {
         super(random);
-        if (random.nextInt(2) == 1){
+        if (random.nextInt(2) == 1)
             this.khabar = true;
-        }else {
-            this.khabar = false;
-        }
     }
 
-    public Deputy(Name name, SecondName secondName) {
+    protected Deputy(Name name, SecondName secondName) {
         super(name, secondName);
     }
 
 
-    public boolean isKhabar() {
+    protected boolean isKhabar() {
         return khabar;
     }
 
-    public int getValueKhabar() {
+    protected int getValueKhabar() {
         return valueKhabar;
     }
 
-    public void setValueKhabar(int valueKhabar) {
+    protected void setValueKhabar(int valueKhabar) {
         this.valueKhabar += valueKhabar;
     }
 
-    public void givKhabar(){
-//      Якщо поле хабарник false - то вивести на консоль :
-//      "Цей депутат не бере хабарів", якщо умова не виконується ,
-//      то ввести з консолі суму хабаря яку ви даєте,якщо це сума більша 5000, вивести на консоль
-//      "Міліція увязнить депутата", якщо не більша то занести в поле класу хабар дану суму.
-
+    protected void givKhabar(){
         if (!khabar){
             System.out.println("Цей депутат не бере хабарів");
         }else {
             System.out.println("Яку суму ви пропонуєте");
-            int value = Input.getScannerCheckedValue(Input.VariableTypes.INTEGER);
+            int value = Input.getInt();
             if (value > 5000){
                 System.out.println("Міліція увязнить депутата");
             }else {

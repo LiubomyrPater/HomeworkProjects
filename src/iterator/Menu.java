@@ -4,7 +4,7 @@ import service.Input;
 
 public abstract class Menu {
 
-    public static void printMainMenu(){
+    protected static void printMainMenu(){
         System.out.println("\n" +
                                     "Введіть 1 щоб додати фракцію\n" +
                                     "Введіть 2 щоб видалити конкретну фракцію\n" +
@@ -21,87 +21,61 @@ public abstract class Menu {
                                     ": ");
     }
 
-    public static Boolean choiceChapter(){
+    protected static Boolean choiceChapter(){
         Boolean program = true;
-        String chapter = Input.getScannerCheckedValue(Input.VariableTypes.STRING);
+        String chapter = Input.getString();
         switch (chapter.trim()){
             case "1":{
                 VR.getOne().addFraction();
                 break;
             }case "2":{
                 Fraction temp = VR.getOne().choiceFraction();
-                if (temp != null){
+                if (temp != null)
                     VR.getOne().delFraction(temp);
-                }else {
-                    System.out.println("Фракцію не знайдено");
-                }
                 break;
             }case "3":{
                 VR.getOne().viewAllFractions();
                 break;
             }case "4":{
                 Fraction temp = VR.getOne().choiceFraction();
-                if (temp != null){
+                if (temp != null)
                     temp.clearFraction();
-                }else {
-                    System.out.println("Фракцію не знайдено");
-                }
                 break;
             }case "5":{
                 Fraction temp = VR.getOne().choiceFraction();
-                if (temp != null){
+                if (temp != null)
                     temp.viewDeputyFraction();
-                }else {
-                    System.out.println("Фракцію не знайдено");
-                }
                 break;
             }case "6":{
                 Fraction temp = VR.getOne().choiceFraction();
                 if (temp != null){
                     Deputy deputy = VR.getOne().choiceDeputy();
-                    if (deputy != null){
+                    if (deputy != null)
                         temp.addDeputyInFraction(deputy);
-                    }else{
-                        System.out.println("Депутата не знайдено");
-                    }
-                }else {
-                    System.out.println("Фракцію не знайдено");
                 }
                 break;
             }case "7":{
                 Fraction temp = VR.getOne().choiceFraction();
                 if (temp != null){
                     Deputy deputy = VR.getOne().choiceDeputy();
-                    if (deputy != null){
+                    if (deputy != null)
                         temp.delDeputyFromFraction(deputy);
-                    }else {
-                        System.out.println("Депутата не знайдено");
-                    }
-                }else {
-                    System.out.println("Фракцію не знайдено");
                 }
                 break;
             }case "8":{
                 Fraction temp = VR.getOne().choiceFraction();
-                if (temp != null){
+                if (temp != null)
                     temp.viewAllKhabar();
-                }else {
-                    System.out.println("Фракцію не знайдено");
-                }
                 break;
             }case "9":{
                 Fraction temp = VR.getOne().choiceFraction();
-                if (temp != null){
+                if (temp != null)
                     temp.theBigestKhabar();
-                }else {
-                    System.out.println("Фракцію не знайдено");
-                }
                 break;
             }case "0": {
                 Deputy deputy = VR.getOne().choiceDeputy();
-                if (deputy != null){
+                if (deputy != null)
                     deputy.givKhabar();
-                }
                 break;
             }case "+":{
                 VR.getOne().viewDeputies();
