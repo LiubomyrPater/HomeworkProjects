@@ -14,7 +14,7 @@ public class Deputy extends Person{
 
     protected Deputy(Random random) {
         super(random);
-        if (random.nextInt(2) == 1)
+        if (random.nextBoolean())
             this.khabar = true;
     }
 
