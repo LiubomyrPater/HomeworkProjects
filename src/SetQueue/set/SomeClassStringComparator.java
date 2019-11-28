@@ -1,4 +1,4 @@
-package SetQueue;
+package SetQueue.set;
 
 import java.util.Comparator;
 

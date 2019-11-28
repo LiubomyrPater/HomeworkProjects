@@ -1,6 +1,5 @@
-package SetQueue;
+package SetQueue.set;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -15,22 +14,6 @@ public class Main {
 //    Вивести спершу невідсортований список,
 //    потім відсортований на консоль.
 
-//    2) Створити клас Commodity.
-//    Описати даний клас: поля методи.
-//    Повинні бути такі методи:
-//    Додати товар
-//    Видалити товар
-//    Замінити товар
-//    Сортувати за назвоню
-//    Сортувати за довжиною
-//    Сортувати за шириною
-//    Сортувати за вагою
-//    Виводимо і-тий елемент колекції(який ми вводимо з консолі(використовуємо Scanner))
-//    Вийти з програми(підказка System.exit)
-//
-//    Для меню використати Switch.
-//    Продемонструвати як виконується кожен метод над списком і
-//    виводити список після змін в ньому.
 
     public static void main(String[] args) {
         Random random = new Random();
@@ -56,6 +39,5 @@ public class Main {
         someClassTreeSet2.addAll(someClassTreeSet);
 
         System.out.println("Comparator by String: \n" + someClassTreeSet2);
-
     }
 }
