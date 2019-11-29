@@ -9,14 +9,10 @@ public class Main {
 
         Commodity commodity = new Commodity("jkjkljlkjlkjlkjl",987,80,890);
 
-        System.out.println(Commodity.getCommoditySet() + "\n" + Commodity.getCommoditySet().size());
-
-        Commodity.getCommoditySet().add(commodity);
-
-        System.out.println(Commodity.getCommoditySet() + "\n" + Commodity.getCommoditySet().size());
 
 
 
+        Menu.mainMenu();
 
 
     }

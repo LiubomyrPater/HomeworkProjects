@@ -24,7 +24,7 @@ public class Commodity {
 
 
 
-    private final static Set<Commodity> commoditySet = new HashSet<>();
+    private final static List<Commodity> commodityList = new ArrayList<>();
 
     private String name;
     private Integer length;
@@ -41,7 +41,7 @@ public class Commodity {
 
     public Commodity(int count, Random random) {
         for (int i = 0; i <count ; i++) {
-            commoditySet.add(new Commodity(random));
+            commodityList.add(new Commodity(random));
         }
     }
 
@@ -72,55 +72,46 @@ public class Commodity {
         return weight;
     }
 
-    public static Set<Commodity> getCommoditySet() {
-        return commoditySet;
+    public static List<Commodity> getCommodityList() {
+        return commodityList;
     }
 
     public static void addCommodity(Commodity commodity){
-        commoditySet.add(commodity);
+        commodityList.add(commodity);
     }
 
     public static void removeCommodity(Commodity commodity){
-        commoditySet.remove(commodity);
+        commodityList.remove(commodity);
     }
 
     public static void changeCommodity(Commodity commodity){
-        commoditySet.remove(commodity);
-        commoditySet.add(new Commodity("iyriuew", 43232,3243,324));
+        commodityList.remove(commodity);
+        commodityList.add(new Commodity("iyriuew", 43232,3243,324));
     }
 
     public static void sortByName(){
-        TreeSet<Commodity> sortedByName = new TreeSet<>(new CommodityComparators.NameComparator());
-        sortedByName.addAll(commoditySet);
-        System.out.println(sortedByName);
+        commodityList.sort(new CommodityComparators.NameComparator());
+        System.out.println(commodityList);
     }
 
     public static void sortByLength(){
-        TreeSet<Commodity> sortedByLength = new TreeSet<>(new CommodityComparators.LendthComparator());
-        sortedByLength.addAll(commoditySet);
-        System.out.println(sortedByLength);
+        commodityList.sort(new CommodityComparators.LendthComparator());
+        System.out.println(commodityList);
     }
 
     public static void sortByWidth(){
-        TreeSet<Commodity> sortedByWidth = new TreeSet<>(new CommodityComparators.WidthComparator());
-        sortedByWidth.addAll(commoditySet);
-        System.out.println(sortedByWidth);
+        commodityList.sort(new CommodityComparators.WidthComparator());
+        System.out.println(commodityList);
     }
 
     public static void sortByWeight(){
-        TreeSet<Commodity> sortedByWeight = new TreeSet<>(new CommodityComparators.WeightComparator());
-        sortedByWeight.addAll(commoditySet);
-        System.out.println(sortedByWeight);
+        commodityList.sort(new CommodityComparators.WeightComparator());
+        System.out.println(commodityList);
     }
 
     public static void getAny(){
-        int number = Input.getInt();
-        Commodity temp = null;
-        Iterator<Commodity> commodityIterator = commoditySet.iterator();
-        for (int i = 0; i <number ; i++) {
-            temp = commodityIterator.next();
-        }
-        System.out.println(temp);
+        int any = Input.getInt();
+        System.out.println(commodityList.get(any));
     }
 
     @Override
