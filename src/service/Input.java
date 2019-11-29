@@ -13,8 +13,9 @@ public final class Input {
         int temp = 0;
         try {
             temp = scanner.nextInt();
-        }catch (InputMismatchException e){
+
             scanner.nextLine();
+        }catch (InputMismatchException e){
             e.printStackTrace();
         }
         return temp;

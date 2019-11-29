@@ -5,24 +5,6 @@ import service.Input;
 import java.util.*;
 
 public class Commodity {
-    //    2) Створити клас Commodity.
-//    Описати даний клас: поля методи.
-//    Повинні бути такі методи:
-//    Додати товар
-//    Видалити товар
-//    Замінити товар
-//    Сортувати за назвоню
-//    Сортувати за довжиною
-//    Сортувати за шириною
-//    Сортувати за вагою
-//    Виводимо і-тий елемент колекції(який ми вводимо з консолі(використовуємо Scanner))
-//    Вийти з програми(підказка System.exit)
-//
-//    Для меню використати Switch.
-//    Продемонструвати як виконується кожен метод над списком і
-//    виводити список після змін в ньому.
-
-
 
     private final static List<Commodity> commodityList = new ArrayList<>();
 
@@ -72,21 +54,38 @@ public class Commodity {
         return weight;
     }
 
-    public static List<Commodity> getCommodityList() {
-        return commodityList;
+    public static void getCommodityList() {
+        System.out.println(commodityList);;
     }
 
-    public static void addCommodity(Commodity commodity){
-        commodityList.add(commodity);
+    public static Commodity createCommodity(){
+        System.out.print("Введіть назву товару: ");
+        String name = Input.getString();
+        System.out.print("Введіть довжину товару: ");
+        Integer lenght = Input.getInt();
+        System.out.print("Введіть ширину товару: ");
+        Integer width = Input.getInt();
+        System.out.print("Введіть массу товару: ");
+        Integer weight = Input.getInt();
+        Commodity temp = new Commodity(name, lenght, width, weight);
+        return temp;
     }
 
-    public static void removeCommodity(Commodity commodity){
-        commodityList.remove(commodity);
+    public static void addCommodity(){
+        Commodity temp = createCommodity();
+        commodityList.add(temp);
     }
 
-    public static void changeCommodity(Commodity commodity){
-        commodityList.remove(commodity);
-        commodityList.add(new Commodity("iyriuew", 43232,3243,324));
+    public static void removeCommodity(){
+        Commodity temp = createCommodity();
+        commodityList.remove(temp);
+    }
+
+    public static void changeCommodity(){
+        Commodity temp = createCommodity();
+        commodityList.remove(temp);
+        System.out.println("\n");
+        commodityList.add(createCommodity());
     }
 
     public static void sortByName(){
@@ -112,6 +111,23 @@ public class Commodity {
     public static void getAny(){
         int any = Input.getInt();
         System.out.println(commodityList.get(any));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Commodity commodity = (Commodity) o;
+        return Objects.equals(name, commodity.name) &&
+                Objects.equals(length, commodity.length) &&
+                Objects.equals(width, commodity.width) &&
+                Objects.equals(weight, commodity.weight);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, length, width, weight);
     }
 
     @Override
