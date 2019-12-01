@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Commodity {
 
-    private final static List<Commodity> commodityList = new ArrayList<>();
+
 
     private String name;
     private Integer length;
@@ -21,10 +21,12 @@ public class Commodity {
         this.weight = weight;
     }
 
-    public Commodity(int count, Random random) {
+    public static List<Commodity> commodities(int count, Random random) {
+        List<Commodity> commodityList = new ArrayList<>();
         for (int i = 0; i <count ; i++) {
             commodityList.add(new Commodity(random));
         }
+        return commodityList;
     }
 
     private Commodity(Random random) {
@@ -54,8 +56,8 @@ public class Commodity {
         return weight;
     }
 
-    public static void getCommodityList() {
-        System.out.println(commodityList);;
+    public static void getCommodityList(List<Commodity> commodityList) {
+        System.out.println(commodityList);
     }
 
     public static Commodity createCommodity(){
@@ -71,44 +73,44 @@ public class Commodity {
         return temp;
     }
 
-    public static void addCommodity(){
+    public static void addCommodity(List<Commodity> commodityList){
         Commodity temp = createCommodity();
         commodityList.add(temp);
     }
 
-    public static void removeCommodity(){
+    public static void removeCommodity(List<Commodity> commodityList){
         Commodity temp = createCommodity();
         commodityList.remove(temp);
     }
 
-    public static void changeCommodity(){
+    public static void changeCommodity(List<Commodity> commodityList){
         Commodity temp = createCommodity();
         commodityList.remove(temp);
         System.out.println("\n");
         commodityList.add(createCommodity());
     }
 
-    public static void sortByName(){
+    public static void sortByName(List<Commodity> commodityList){
         commodityList.sort(new CommodityComparators.NameComparator());
         System.out.println(commodityList);
     }
 
-    public static void sortByLength(){
+    public static void sortByLength(List<Commodity> commodityList){
         commodityList.sort(new CommodityComparators.LendthComparator());
         System.out.println(commodityList);
     }
 
-    public static void sortByWidth(){
+    public static void sortByWidth(List<Commodity> commodityList){
         commodityList.sort(new CommodityComparators.WidthComparator());
         System.out.println(commodityList);
     }
 
-    public static void sortByWeight(){
+    public static void sortByWeight(List<Commodity> commodityList){
         commodityList.sort(new CommodityComparators.WeightComparator());
         System.out.println(commodityList);
     }
 
-    public static void getAny(){
+    public static void getAny(List<Commodity> commodityList){
         int any = Input.getInt();
         System.out.println(commodityList.get(any));
     }
@@ -129,7 +131,7 @@ public class Commodity {
 
         return Objects.hash(name, length, width, weight);
     }
-
+/*
     @Override
     public String toString() {
         return "Commodity{" +
@@ -138,5 +140,5 @@ public class Commodity {
                 ", width=" + width +
                 ", weight=" + weight +
                 '}' + "\n";
-    }
+    }*/
 }

@@ -2,6 +2,8 @@ package SetQueue.commodity;
 
 import service.Input;
 
+import java.util.List;
+
 public abstract class Menu {
     private static void printMenu(){
         System.out.print("\n" +
@@ -19,37 +21,37 @@ public abstract class Menu {
                                     "Ввід: ");
     }
 
-    public static void mainMenu(){
+    public static void mainMenu(List<Commodity> commodityList){
         while (true){
             printMenu();
             String chapter = Input.getString();
             switch (chapter){
                 case "1":{
-                    Commodity.addCommodity();
+                    Commodity.addCommodity(commodityList);
                     break;
                 }case "2":{
-                    Commodity.removeCommodity();
+                    Commodity.removeCommodity(commodityList);
                     break;
                 }case "3":{
-                    Commodity.changeCommodity();
+                    Commodity.changeCommodity(commodityList);
                     break;
                 }case "4":{
-                    Commodity.sortByName();
+                    Commodity.sortByName(commodityList);
                     break;
                 }case "5":{
-                    Commodity.sortByLength();
+                    Commodity.sortByLength(commodityList);
                     break;
                 }case "6":{
-                    Commodity.sortByWidth();
+                    Commodity.sortByWidth(commodityList);
                     break;
                 }case "7":{
-                    Commodity.sortByWeight();
+                    Commodity.sortByWeight(commodityList);
                     break;
                 }case "8":{
-                    Commodity.getAny();
+                    Commodity.getAny(commodityList);
                     break;
                 }case "9":{
-                    Commodity.getCommodityList();
+                    Commodity.getCommodityList(commodityList);
                     break;
                 }case "0":{
                     System.exit(0);
