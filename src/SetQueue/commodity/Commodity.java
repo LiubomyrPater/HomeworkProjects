@@ -131,7 +131,6 @@ public class Commodity {
 
         return Objects.hash(name, length, width, weight);
     }
-/*
     @Override
     public String toString() {
         return "Commodity{" +
@@ -140,5 +139,5 @@ public class Commodity {
                 ", width=" + width +
                 ", weight=" + weight +
                 '}' + "\n";
-    }*/
+    }
 }
