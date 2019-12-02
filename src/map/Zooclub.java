@@ -17,11 +17,11 @@ import java.util.*;
 //        Вивести на екран зооклуб
 
 
-public class Zooclub {
+public final class Zooclub {
 
-    private static Zooclub one;
+    private static Zooclub instance = new Zooclub(new Random());
 
-    private Map<Person, List<Animal>> personListMap = new HashMap<>();
+    private final Map<Person, List<Animal>> personListMap = new HashMap<>();
 
     private Zooclub(Random random) {
         for (int j = 0; j < (random.nextInt(10) + 10); j++) {
@@ -33,11 +33,8 @@ public class Zooclub {
         }
     }
 
-    public static Zooclub getOne(Random random){
-        if (one == null){
-            one = new Zooclub(random);
-        }
-        return one;
+    public static Zooclub getInstance(Random random){
+        return instance;
     }
 
     public void addMember(Random random){
@@ -50,13 +47,20 @@ public class Zooclub {
 
     public void addAnimalInMember(Random random){
         Person person = choiceMember();
-        if (person != null)
-        personListMap.get(person).add(new Animal(random));
+        if (person != null) {
+            System.out.println(Arrays.toString(personListMap.get(person).toArray()));
+            personListMap.get(person).add(new Animal(random));
+            System.out.println(Arrays.toString(personListMap.get(person).toArray()));
+        }
     }
 
     public void remoweAnimalFromMember(){
-        Person person = new Person(Person.Name.OLEH, 980);
-        personListMap.get(person).remove(5);
+        Person person = choiceMember();
+        if (person != null){
+            System.out.println(Arrays.toString(personListMap.get(person).toArray()));
+            System.out.print("Оберіть тваринку: ");
+        }
+        //personListMap.get(person).remove(5);
     }
 
     public void remoweMember(){

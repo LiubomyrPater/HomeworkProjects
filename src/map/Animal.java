@@ -16,7 +16,7 @@ public class Animal {
         this.type = Type.values()[random.nextInt(Type.values().length)];
 
         char[] chars = new char[5];
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i <5; i++) {
             chars[i] = (char)(random.nextInt(25) + 97);
         }
         chars[0] = (char) (Integer.valueOf(chars[0]) - 32);
@@ -58,6 +58,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        return type + " " + name;
+        return type + " \"" + name + "\"";
     }
 }

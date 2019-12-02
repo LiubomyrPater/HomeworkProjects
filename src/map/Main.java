@@ -18,22 +18,22 @@ public class Main {
             String chapter = Input.getString();
             switch (chapter){
                 case "1":{
-                    Zooclub.getOne(random).addMember(random);
+                    Zooclub.getInstance(random).addMember(random);
                     break;
                 }case "2":{
-                    Zooclub.getOne(random).addAnimalInMember(random);
+                    Zooclub.getInstance(random).addAnimalInMember(random);
                     break;
                 }case "3":{
-                    Zooclub.getOne(random).remoweAnimalFromMember();
+                    Zooclub.getInstance(random).remoweAnimalFromMember();
                     break;
                 }case "4":{
-                    Zooclub.getOne(random).remoweMember();
+                    Zooclub.getInstance(random).remoweMember();
                     break;
                 }case "5":{
-                    Zooclub.getOne(random).remoweAnimalFromAllMembers();
+                    Zooclub.getInstance(random).remoweAnimalFromAllMembers();
                     break;
                 }case "6":{
-                    Zooclub.getOne(random).viewZooclub();
+                    Zooclub.getInstance(random).viewZooclub();
                     break;
                 }case "0":{
                     System.exit(0);
