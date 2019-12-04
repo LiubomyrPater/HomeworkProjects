@@ -42,7 +42,7 @@ public class Main {
         is.setAccessible(true);
         is.set(instance, false);
 
-        System.out.println("\n" + instance + " : " + instance.getName() + " - " + instance.getCount() + " - " + instance.getIs() + "\n");
+        System.out.println(instance + " : " + instance.getName() + " - " + instance.getCount() + " - " + instance.getIs() + "\n");
 
         //3.
 
