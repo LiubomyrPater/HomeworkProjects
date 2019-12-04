@@ -8,12 +8,13 @@ package reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException{
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
 
         //1.
         Any instance = new Any("Qwerty", 15, true);
@@ -45,6 +46,10 @@ public class Main {
         System.out.println(instance + " : " + instance.getName() + " - " + instance.getCount() + " - " + instance.getIs() + "\n");
 
         //3.
+        Method action = instance.getClass().getMethod("setName", String.class);
+        action.invoke(instance, "IDEA");
+        System.out.println(instance.getName());
+
 
 
     }

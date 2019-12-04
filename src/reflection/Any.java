@@ -2,9 +2,9 @@ package reflection;
 
 public class Any {
 
-     private String name;
-     private Integer count;
-     private Boolean is;
+    private String name;
+    private Integer count;
+    private Boolean is;
 
     public Any() {
     }
@@ -27,5 +27,7 @@ public class Any {
         return is;
     }
 
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }
