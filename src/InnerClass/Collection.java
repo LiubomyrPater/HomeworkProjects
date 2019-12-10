@@ -1,4 +1,4 @@
-package Inner;
+package InnerClass;
 
 /**
  Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next().

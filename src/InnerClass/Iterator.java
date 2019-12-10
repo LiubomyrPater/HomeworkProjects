@@ -1,4 +1,4 @@
-package Inner;
+package InnerClass;
 
 public interface Iterator {
 

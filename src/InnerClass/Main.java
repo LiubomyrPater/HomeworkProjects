@@ -1,4 +1,4 @@
-package Inner;
+package InnerClass;
 /**
         Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next().
         Створити клас Collection, в якого оголосити як поле масив типу Number.
@@ -25,6 +25,7 @@ public class Main {
     public static void main(String[] args) {
 
         Collection  temp = new Collection(new Integer[]{5,6,89,9,5,4,3,5});
+
 
         while (Collection.One.hasNext()){
             System.out.println(Collection.One.next());

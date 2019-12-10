@@ -1,6 +1,6 @@
-package Inner.nestedClass2;
+package InnerClass.nestedClass2;
 
-import Inner.nestedClass.Test;
+import InnerClass.nestedClass.Test;
 
 public class Tested {
 
