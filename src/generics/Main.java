@@ -1,9 +1,6 @@
 package generics;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import java.util.*;
 /**
         1. Зробіть так, щоб в List<Integer> можна було додати об’єкт типу String.
            І поясніть чому так можна зробити, якщо це взагалі можливо?
@@ -12,8 +9,7 @@ import java.util.List;
         2. Створити клас MyEntry<K,V>.
            Описати в ньому дженеріками – поля, гетери/сетери, toString.
 
-        3. Створити клас Map<K,V>.
-           Реалізвати в даному класі методи, які б:
+        3. Створити клас Map<K,V>. Реалізвати в даному класі методи, які б:
            Додавали новий об’єкт в мапу
            Видаляли об’єкт мапи за ключем
            Видаляли об’єкт мапи за значенням
@@ -21,7 +17,6 @@ import java.util.List;
            Виводили на екран List значень
            Виводили на екран цілу мапу
 */
-
 public class Main {
     public static void main(String[] args) {
 
@@ -45,6 +40,27 @@ public class Main {
 
 
         //3.
+        generics.Map<Integer, String> integerStringMap = new generics.Map<>();
+        System.out.println("----------------------------");
+        integerStringMap.put(5,"FIVE");
+        integerStringMap.put(6,"SIX");
+        integerStringMap.put(7,"SEVEN");
+        integerStringMap.put(8,"EIGHT");
+        integerStringMap.put(9,"NINE");
+        integerStringMap.put(0,"ZERO");
 
+        System.out.println("\n//3.\nKEY SET:\n" + integerStringMap.keySet() + "\n");
+
+        System.out.println("LIST VALUE:\n" + integerStringMap.valueList() + "\n");
+
+        System.out.println("ALL MAP:\n" + integerStringMap.allMap());
+
+        integerStringMap.put(5,"EIGHT");
+
+        //integerStringMap.removeByKey(6);
+
+        //integerStringMap.removeByValue("not done");
+
+        System.out.println("ALL MAP:\n" + integerStringMap.allMap());
     }
 }
