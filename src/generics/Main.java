@@ -40,7 +40,7 @@ public class Main {
 
 
         //3.
-        generics.Map<Integer, String> integerStringMap = new generics.Map<>();
+        /*generics.Map<Integer, String> integerStringMap = new generics.Map<>();
         System.out.println("----------------------------");
         integerStringMap.put(5,"FIVE");
         integerStringMap.put(6,"SIX");
@@ -61,6 +61,6 @@ public class Main {
 
         //integerStringMap.removeByValue("not done");
 
-        System.out.println("ALL MAP:\n" + integerStringMap.allMap());
+        System.out.println("ALL MAP:\n" + integerStringMap.allMap());*/
     }
 }
