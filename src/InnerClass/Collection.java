@@ -25,22 +25,23 @@ package InnerClass;
 public class Collection {
 
     private Number[] numbers;
-    private One one = new One();
-    private Two two = new Two();
-
-    public One getOne() {
-        return one;
-    }
-
-    public Two getTwo() {
-        return two;
-    }
+    private InnerFirst innerFirst = new InnerFirst();
+    private InnerSecond innerSecond = new InnerSecond();
 
     public Collection(Number[] numbers) {
         this.numbers = numbers;
     }
 
-    class One implements Iterator{
+    public InnerFirst getInnerFirst() {
+        return innerFirst;
+    }
+
+    public InnerSecond getInnerSecond() {
+        return innerSecond;
+    }
+
+
+    class InnerFirst implements Iterator{
 
         private int point = -1;
 
@@ -59,19 +60,21 @@ public class Collection {
         }
     }
 
-    class Two implements Iterator{
+    class InnerSecond implements Iterator{
 
-        private int point = numbers.length;
-
-        @Override
-        public Number next() {
-            point --;
-            return numbers[point];
-        }
+        private int point = 9;
 
         @Override
         public Boolean hasNext() {
-            return point > 0;
+            return point > 1;
+        }
+
+        @Override
+        public Number next() {
+
+            point -= 2;
+
+            return numbers[point];
         }
     }
 }
