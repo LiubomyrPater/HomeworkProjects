@@ -1,4 +1,4 @@
-package InnerClass.nestedClass;
+package InnerClass.test;
 
 public class Test {
 

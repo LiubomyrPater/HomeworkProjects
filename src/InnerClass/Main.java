@@ -24,11 +24,14 @@ package InnerClass;
 public class Main {
     public static void main(String[] args) {
 
-        Collection  temp = new Collection(new Integer[]{5,6,89,9,5,4,3,5});
+        Collection temp = new Collection(new Integer[]{5,6,89,9,5,4,3,5});
 
+//        while (temp.getOne().hasNext()){
+//            System.out.println(temp.getOne().next());
+//        }
 
-        while (Collection.One.hasNext()){
-            System.out.println(Collection.One.next());
+        while (temp.getTwo().hasNext()){
+            System.out.println(temp.getTwo().next());
         }
     }
 }

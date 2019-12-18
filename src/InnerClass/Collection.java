@@ -1,7 +1,6 @@
 package InnerClass;
 
 /**
- Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next().
  Створити клас Collection, в якого оголосити як поле масив типу Number.
  Створити конструктор з визначеними параметрами куди передати даний масив.
  Створити два внутрішніх класи, які імплементуватимуть інтерфейс Iterator.
@@ -25,44 +24,54 @@ package InnerClass;
 
 public class Collection {
 
-    private static Number[] numbers;
+    private Number[] numbers;
+    private One one = new One();
+    private Two two = new Two();
+
+    public One getOne() {
+        return one;
+    }
+
+    public Two getTwo() {
+        return two;
+    }
 
     public Collection(Number[] numbers) {
         this.numbers = numbers;
     }
 
+    class One implements Iterator{
 
+        private int point = -1;
 
-    static class One implements Iterator{
-
-        private static int point = -1;
-
-        //@Override
-        public static Number next() {
+        @Override
+        public Number next() {
             point ++;
-            if (point % 2 != 0){
+            if (point % 2 == 0){
                 numbers[point] = 0;
             }
             return numbers[point];
         }
 
-        //@Override
-        public static boolean hasNext() {
-            return point < numbers.length;
+        @Override
+        public Boolean hasNext() {
+            return (point + 1) < numbers.length;
         }
-
     }
 
+    class Two implements Iterator{
 
-    /*class Two implements Iterator{
+        private int point = numbers.length;
+
         @Override
-        public int next() {
-
+        public Number next() {
+            point --;
+            return numbers[point];
         }
 
         @Override
-        public boolean hasNext() {
-
+        public Boolean hasNext() {
+            return point > 0;
         }
-    }*/
+    }
 }

@@ -1,12 +1,8 @@
 package InnerClass;
-
+/**Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next().*/
 public interface Iterator {
 
-    /*static Number next(){
-        return 0;
-    }
+    Number next();
 
-    static boolean hasNext(){
-        return false;
-    }*/
+    Boolean hasNext();
 }
