@@ -25,11 +25,23 @@ package InnerClass;
 public class Collection {
 
     private Number[] numbers;
-    private InnerFirst innerFirst = new InnerFirst();
-    private InnerSecond innerSecond = new InnerSecond();
+    private InnerFirst innerFirst;
+    private InnerSecond innerSecond;
 
     public Collection(Number[] numbers) {
         this.numbers = numbers;
+        this.innerFirst = new InnerFirst();
+        this.innerSecond = new InnerSecond();
+    }
+
+    public void setNumbers(Number[] numbers) {
+        this.numbers = numbers;
+        this.innerFirst = new InnerFirst();
+        this.innerSecond = new InnerSecond();
+    }
+
+    public Number[] getNumbers() {
+        return numbers;
     }
 
     public InnerFirst getInnerFirst() {
@@ -62,7 +74,7 @@ public class Collection {
 
     class InnerSecond implements Iterator{
 
-        private int point = 9;
+        private int point = numbers.length + 1;
 
         @Override
         public Boolean hasNext() {
@@ -71,10 +83,27 @@ public class Collection {
 
         @Override
         public Number next() {
-
             point -= 2;
-
             return numbers[point];
         }
     }
+
+/*
+    public static class Static implements Iterator{
+
+        private int point = -1;
+
+        @Override
+        public Number next() {
+            point ++;
+
+            return numbers[point];
+        }
+
+        @Override
+        public Boolean hasNext() {
+            return null;
+        }
+    }*/
+
 }
