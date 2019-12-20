@@ -1,5 +1,6 @@
 package lambda;
 
 public abstract class Pet {
-    public abstract String voice();
+
+    public String voice(){return null;}
 }

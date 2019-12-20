@@ -1,5 +1,7 @@
 package lambda;
 
+import java.util.Random;
+
 public class main {
     public static void main(String[] args) {
 /**
@@ -21,11 +23,11 @@ public class main {
            Створіть в мейн методі екземпляр класу Frog, приведіть його до типу Amphibia, і викличте до об’єкту Frog всі методи класу Amphibia.
 */
 
-        Pet pet1 = p -> System.out.println(Pet::voice);
-        pet1.voice();
-        Pet pet2 = new Cow();
-        Pet pet3 = new Dog();
 
+
+
+
+        //System.out::print = () -> {(Random::nextBoolean()) ? "face" : "back"};
 
 
     }
