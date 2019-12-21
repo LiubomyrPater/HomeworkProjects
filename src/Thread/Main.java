@@ -22,11 +22,34 @@ package Thread;
         Виконайте попереднє завдання використовуючи різні типи ExecutorServices
 */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        Fibonnachi.input();
+        //1.
+        System.out.println("//1.");
+        Thread.sleep(500);
         MyThread myThread = new MyThread();
         myThread.run();
 
+        System.out.println("\n================\n");
+        Thread.sleep(1000);
 
+        //2.
+        System.out.println("//2.");
+        Thread.sleep(500);
+        RunnableThread runnableThread = new RunnableThread();
+        Fibonnachi.input();
+        runnableThread.run();
+
+        System.out.println("\n================\n");
+        Thread.sleep(1000);
+        /*MyThread myThread = new MyThread();
+        RunnableThread runnableThread = new RunnableThread();*/
+        //3.
+        System.out.println("//3.");
+        Thread.sleep(500);
+        myThread.run();
+        runnableThread.run();
 
     }
 }
