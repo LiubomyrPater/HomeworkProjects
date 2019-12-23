@@ -35,11 +35,22 @@ public abstract class Fibonnachi {
     }
 
     public static void input() throws InterruptedException {
-        System.out.print("Введіть порядковий номер числа із послідовності: ");
+        char[] chars1 = "Введіть порядковий номер числа із послідовності: ".toCharArray();
+        for (char c: chars1){
+            System.out.print(c);
+            Thread.sleep(30);
+        }
         number = Input.getInt();
-        Thread.sleep(1000);
 
-        System.out.print("Введіть кількість чисел послідовності: ");
+
+        Thread.sleep(500);
+
+
+        char[] chars2 = "Введіть кількість чисел послідовності: ".toCharArray();
+        for (char c: chars2){
+            System.out.print(c);
+            Thread.sleep(30);
+        }
         count = Input.getInt();
     }
 }

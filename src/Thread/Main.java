@@ -19,37 +19,44 @@ package Thread;
         Потік Runnable: . . .5 3 2 1 1
 
         Максимум:
-        Виконайте попереднє завдання використовуючи різні типи ExecutorServices
+        4. Виконайте попереднє завдання використовуючи різні типи ExecutorServices
 */
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Fibonnachi.input();
         //1.
         System.out.println("//1.");
-        Thread.sleep(500);
+        Thread.sleep(400);
+        Fibonnachi.input();
         MyThread myThread = new MyThread();
         myThread.run();
-
         System.out.println("\n================\n");
-        Thread.sleep(1000);
+        Thread.sleep(800);
 
         //2.
         System.out.println("//2.");
-        Thread.sleep(500);
+        Thread.sleep(400);
         RunnableThread runnableThread = new RunnableThread();
-        Fibonnachi.input();
         runnableThread.run();
-
         System.out.println("\n================\n");
-        Thread.sleep(1000);
-        /*MyThread myThread = new MyThread();
-        RunnableThread runnableThread = new RunnableThread();*/
+        Thread.sleep(800);
+
         //3.
         System.out.println("//3.");
-        Thread.sleep(500);
-        myThread.run();
-        runnableThread.run();
+        Thread.sleep(400);
+        myThread.start();
+        Thread.sleep(300);
+        Thread thread = new Thread(runnableThread);
+        thread.start();
+
+        myThread.join();
+        thread.join();
+
+        System.out.println("\n================\n");
+
+        //4.
+        System.out.println("//4.");
+        Thread.sleep(400);
 
     }
 }

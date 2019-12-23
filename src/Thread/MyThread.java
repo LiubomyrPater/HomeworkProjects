@@ -17,7 +17,7 @@ public class MyThread extends Thread{
         for (Long e : fibonnachi) {
             System.out.print(e + " ");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }

@@ -17,7 +17,7 @@ public class RunnableThread implements Runnable {
         for (int i = fibonnachi.size()-1; i >= 0 ; i--) {
             System.out.print(fibonnachi.get(i) + " ");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
