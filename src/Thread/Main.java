@@ -1,4 +1,10 @@
 package Thread;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /**
         Мінімум:
         1. Створити потік.
@@ -54,9 +60,13 @@ public class Main {
 
         System.out.println("\n================\n");
 
-        //4.
+        //4.тут щось не так
         System.out.println("//4.");
         Thread.sleep(400);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        executorService.submit(myThread);
 
+        executorService.submit(runnableThread);
+        executorService.shutdown();
     }
 }
