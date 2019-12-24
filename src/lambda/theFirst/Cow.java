@@ -1,4 +1,4 @@
-package lambda;
+package lambda.theFirst;
 
 public class Cow extends Pet {
     @Override

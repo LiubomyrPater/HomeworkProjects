@@ -2,9 +2,6 @@ package Thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 /**
         Мінімум:
         1. Створити потік.

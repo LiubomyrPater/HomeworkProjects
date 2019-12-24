@@ -1,4 +1,4 @@
-package lambda;
+package lambda.theFirst;
 
 public abstract class Pet {
 
