@@ -75,7 +75,7 @@ public class main {
 
 
 
-        //5.
+        //5.                            ->   ?
         System.out.println("//5.");
 
         Amphibia amphibia = (Amphibia)new Frog();
