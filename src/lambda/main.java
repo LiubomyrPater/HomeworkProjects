@@ -45,7 +45,6 @@ public class main {
         System.out.println("//2.");
 
         System.out.println(new Random().nextBoolean() ? "ОРЕЛ" : "РЕШКА");
-        //() -> System.out.println(Random::nextBoolean ? "ОРЕЛ" : "РЕШКА");
 
         System.out.println("=======================\n");
 
@@ -57,7 +56,6 @@ public class main {
 
         System.out.println("float min = " + Float.MIN_VALUE);
         System.out.println("float max = " + Float.MAX_VALUE);
-
         System.out.println("double min = " + Double.MIN_VALUE);
         System.out.println("double max = " + Double.MAX_VALUE);
 

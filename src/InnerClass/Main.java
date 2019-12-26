@@ -1,7 +1,6 @@
 package InnerClass;
 
 import java.util.Arrays;
-
 /**
         Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next().
         Створити клас Collection, в якого оголосити як поле масив типу Number.
