@@ -1,7 +1,6 @@
 package cinema;
 
 import java.time.LocalTime;
-
 /**
         Проект кінотеатр.
 
@@ -32,22 +31,28 @@ import java.time.LocalTime;
         ArrayList<Movie> moviesLibrary = new ArrayList<>();
         Time open, Time close; - врахувати час відкриття і закриття при формуванні сеансів!
         - методи:
-        addMovie (Movie, Time...time) - додає фільм в фільмотеку moviesLibrary,
-        addSeance (Seance, String) - додає сеанс фільму в розклад (schedules), в конкретний день, який задається параметром String
-        removeMovie(Movie) - повністю видаляє фільм з фільмотеки і розкладу, якщо був запланований
-        removeSeance (Seance, String) - видаляє конкретний сеанс фільму в конкретний день, який задається параметром String
+        addMovie (Movie, Time...time) - додає фільм в фільмотеку moviesLibrary;
+        addSeance (Seance, String) - додає сеанс фільму в розклад (schedules), в конкретний день, який задається параметром String;
+        removeMovie(Movie) - повністю видаляє фільм з фільмотеки і розкладу, якщо був запланований;
+        removeSeance (Seance, String) - видаляє конкретний сеанс фільму в конкретний день, який задається параметром String;
 
         В класі Main:
         - створити об'єкт Cinema;
         - реалізувати меню, в якому виконується весь функціонал Cinema.
-        Для кожного класу зробити адекватний toString, щоб все було читабельно і доступно. Супроводжуючі повідомлення і тому
-        подібне. Там де потрібно, зробити compareTo().
+        Для кожного класу зробити адекватний toString, щоб все було читабельно і доступно.
+        Супроводжуючі повідомлення і тому подібне. Там де потрібно, зробити compareTo().
  */
 public class Main {
 
     public static void main(String[] args) {
 
         Cinema cinema = new Cinema(LocalTime.of(10,0), LocalTime.of(23,0));
+
+        boolean language = true;
+
+        while (true) {
+            language = Service.mainGateProgram(language, cinema);
+        }
 
     }
 }
