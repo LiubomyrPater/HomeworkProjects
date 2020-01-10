@@ -9,13 +9,13 @@ import java.util.TreeSet;
 */
 public class Schedule {
 
-    private Set<Seance> seances = new TreeSet<>();
+    private static Set<Seance> seances = new TreeSet<>();
 
-    public void addSeance(Seance seance){
+    public static void addSeance(Seance seance){
         seances.add(seance);
     }
 
-    public void removeSeance(Seance seance){
+    public static void removeSeance(Seance seance){
         seances.remove(seance);
     }
 }

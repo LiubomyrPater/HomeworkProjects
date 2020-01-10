@@ -31,11 +31,11 @@ public class Cinema {
         this.close = close;
     }
 
-    public void addMovie(Movie movie, LocalTime localTime){}
+    public static void addMovie(Movie movie, LocalTime localTime){}
 
-    public void addSeance(Seance seance, String day){}
+    public static void addSeance(Seance seance, String day){}
 
-    public void removeMovie(Movie movie){}
+    public static void removeMovie(Movie movie){}
 
-    public void removeSeance(Seance seance, String day){}
+    public static void removeSeance(Seance seance, String day){}
 }
