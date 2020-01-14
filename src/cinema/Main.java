@@ -31,7 +31,7 @@ import java.time.LocalTime;
         ArrayList<Movie> moviesLibrary = new ArrayList<>();
         Time open, Time close; - врахувати час відкриття і закриття при формуванні сеансів!
         - методи:
-        addMovie (Movie, Time...time) - додає фільм в фільмотеку moviesLibrary;
+        addMovieInLibrary (Movie, Time...time) - додає фільм в фільмотеку moviesLibrary;
         addSeance (Seance, String) - додає сеанс фільму в розклад (schedules), в конкретний день, який задається параметром String;
         removeMovie(Movie) - повністю видаляє фільм з фільмотеки і розкладу, якщо був запланований;
         removeSeance (Seance, String) - видаляє конкретний сеанс фільму в конкретний день, який задається параметром String;

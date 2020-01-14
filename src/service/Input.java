@@ -13,9 +13,9 @@ public final class Input {
         int temp = 0;
         try {
             temp = scanner.nextInt();
-
             scanner.nextLine();
         }catch (InputMismatchException e){
+            scanner.nextLine();
             e.printStackTrace();
         }
         return temp;
@@ -25,6 +25,7 @@ public final class Input {
         float temp = 0;
         try {
             temp = scanner.nextFloat();
+            scanner.nextLine();
         }catch (InputMismatchException e){
             scanner.nextLine();
             e.printStackTrace();

@@ -2,14 +2,19 @@ package cinema;
 
 import java.util.Set;
 import java.util.TreeSet;
-/**
-    В Schedule:
-        - поле Set<Seance> seances = new TreeSet<>();
-        - методи: addSeance (Seance), removeSeance (Seance);
-*/
-public class Schedule {
 
+public final class Schedule {
+    /**
+     В Schedule:
+     - поле Set<Seance> seances = new TreeSet<>();
+     - методи: addSeance (Seance), removeSeance (Seance);
+     */
     private static Set<Seance> seances = new TreeSet<>();
+
+
+    public static Set<Seance> getSeances(){
+        return seances;
+    }
 
     public static void addSeance(Seance seance){
         seances.add(seance);

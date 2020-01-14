@@ -1,37 +1,60 @@
 package cinema;
 
+import service.Input;
+
 import java.time.LocalTime;
+import java.util.TreeSet;
 
 public abstract class Menu {
 
     static void addSeanceSchedule(boolean language, Cinema cinema){
         System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Schedule.addSeance(new Seance(new Movie("1",1), LocalTime.now()));
+
+        Schedule.addSeance(new Seance(new Movie("1",1), LocalTime.now()));
     }
 
     static void removeSeanceSchedule(boolean language, Cinema cinema){
         System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Schedule.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()));
+        Schedule.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()));
     }
 
     static void addMovie(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Cinema.addMovie(new Movie("1", 1), LocalTime.now());
+        String movieName;
+        while (true){
+            System.out.print(UserInterface.INPUT_MOVIE_NAME.getText(language));
+            movieName = Input.getString().trim();
+            if (movieName.isEmpty())
+                System.out.println(UserInterface.NAME_IS_EMPTY.getText(language));
+            else break;
+        }
+
+        int duration;
+        while (true){
+            System.out.print(UserInterface.INPUT_MOVIE_DURATION.getText(language));
+            duration = Input.getInt();
+            if (duration <= 0)
+                System.out.println(UserInterface.DURATION_IS_EMPTY.getText(language));
+            else break;
+        }
+
+        TreeSet<LocalTime> localTimes = Service.parsingTimes(language);
+
+        cinema.addMovieInLibrary(new Movie(movieName, duration), localTimes);
     }
 
     static void addSeanceCinema(boolean language, Cinema cinema){
         System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Cinema.addSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
+        cinema.addSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
     }
 
     static void removeMovie(boolean language, Cinema cinema){
         System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Cinema.removeMovie(new Movie("1", 1));
+        cinema.removeMovie(new Movie("1", 1));
     }
 
     static void removeSeanceCinema(boolean language, Cinema cinema){
         System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        //Cinema.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
+        cinema.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
     }
 
     static void printMenu(boolean language){

@@ -1,3 +1,5 @@
+/*
+package cinema;
 package cinema;
 
 import InnerClass.Collection;
@@ -79,41 +81,38 @@ public abstract class Service {
         while (true){
             System.out.println(UserInterface.INPUT_SEANCE_TIME.getText(language));
             String timesTemp = Input.getString().trim();
-            timesText = timesTemp.replaceAll("\\s","");
-
-            if (timesTemp.length() < 5
-                    || !timesTemp.contains(":")
-                    || (timesTemp.length() > 5 && !timesTemp.contains(","))
-                    || (timesTemp.length() == 5 && (!timesTemp.matches("[01][0123456789]:[012345][0123456789]") || !timesTemp.matches("[2][0123]:[012345][0123456789]")))
-            )
+            if (timesTemp.length() < 5 || !timesTemp.contains(":") || (timesTemp.length() > 5 && !timesTemp.contains(",")))
                 System.out.println(UserInterface.TIME_IS_EMPTY.getText(language));
-            else
+            else{
+                timesText = timesTemp.replaceAll("\\s","");
                 break;
+            }
         }
 
-
         ArrayList<String> splitTimes = new ArrayList<>();
+
         ArrayList<String> notAdded = new ArrayList<>();
+        ArrayList<String> timesList = new ArrayList<>();
 
         if (timesText.contains(",")) {
 
             String[] temp = timesText.split(",");
-            ArrayList<String> timesList = new ArrayList<>();
             Collections.addAll(timesList, temp);
 
-            timesList.forEach(a -> {
+            for (String a: timesList) {
                 if (a.matches("[01][0123456789]:[012345][0123456789]") || a.matches("[2][0123]:[012345][0123456789]"))
                     splitTimes.add(a);
-                else
-                    notAdded.add(a);
-            });
 
+                else
+
+                    notAdded.add(a);
+            }
         }
         else
-            if (timesText.matches("[01][0123456789]:[012345][0123456789]") || timesText.matches("[2][0123]:[012345][0123456789]"))
-                splitTimes.add(timesText);
-            else
-                notAdded.add(timesText);
+        if (timesText.matches("[01][0123456789]:[012345][0123456789]") || timesText.matches("[2][0123]:[012345][0123456789]"))
+            splitTimes.add(timesText);
+        else
+            notAdded.add(timesText);
 
 
         if (!notAdded.isEmpty()){
@@ -129,3 +128,5 @@ public abstract class Service {
         return times;
     }
 }
+
+*/
