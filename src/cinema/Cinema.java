@@ -44,7 +44,14 @@ public class Cinema {
 
     public void addSeance(Seance seance, String day){}
 
-    public void removeMovie(Movie movie){}
+    public boolean removeMovie(String movie){
+        Movie temp = new Movie(movie);
+        if (moviesLibrary.containsKey(temp)){
+            moviesLibrary.remove(temp);
+            return true;
+        }else
+            return false;
+    }
 
     public void removeSeance(Seance seance, String day){}
 

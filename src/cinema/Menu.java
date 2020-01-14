@@ -48,8 +48,15 @@ public abstract class Menu {
     }
 
     static void removeMovie(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        cinema.removeMovie(new Movie("1", 1));
+        String movieName;
+        System.out.print(UserInterface.INPUT_MOVIE_NAME.getText(language));
+        movieName = Input.getString().trim();
+
+        if (!cinema.removeMovie(movieName))
+            System.out.println("\n" + UserInterface.MOVIE_NOT_FOUND.getText(language));
+        else
+            System.out.println("\n" + UserInterface.MOVIE_DELETED.getText(language));
+
     }
 
     static void removeSeanceCinema(boolean language, Cinema cinema){

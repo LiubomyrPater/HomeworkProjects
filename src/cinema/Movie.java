@@ -11,6 +11,11 @@ public class Movie implements Comparable<Movie>{
     private String title;
     private int durationMin;
 
+
+    public Movie(String title) {
+        this.title = title;
+    }
+
     public Movie(String title, int durationMin) {
         this.title = title;
         this.durationMin = durationMin;
