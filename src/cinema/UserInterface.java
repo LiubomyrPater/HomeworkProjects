@@ -14,7 +14,7 @@ public enum UserInterface {
     ADD_MOVIE("3 - ","3 - додати фільм"),
     ADD_SEANCE_CINEMA("4 - ","4 - додати сеанс в кінотеатр"),
     REMOWE_MOVIE("5 - ","5 - видалити фільм"),
-    REMOVE_SEANCE_CINEMA("6 - ","6 - видалити сеанс із інотеатру"),
+    REMOVE_SEANCE_CINEMA("6 - ","6 - видалити сеанс із кінотеатру"),
     INPUT_MOVIE_NAME("","Введіть назву фільму: "),
     INPUT_MOVIE_DURATION("","Введіть тривалість фільму у хвилинах: "),
     DURATION_IS_EMPTY("","Тривальсть фільму повинна бути числом більшим за нуль!!!"),

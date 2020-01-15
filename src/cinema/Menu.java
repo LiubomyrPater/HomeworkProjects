@@ -8,14 +8,11 @@ import java.util.TreeSet;
 public abstract class Menu {
 
     static void addSeanceSchedule(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
 
-        Schedule.addSeance(new Seance(new Movie("1",1), LocalTime.now()));
     }
 
     static void removeSeanceSchedule(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        Schedule.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()));
+
     }
 
     static void addMovie(boolean language, Cinema cinema){
@@ -43,8 +40,7 @@ public abstract class Menu {
     }
 
     static void addSeanceCinema(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        cinema.addSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
+
     }
 
     static void removeMovie(boolean language, Cinema cinema){
@@ -60,8 +56,7 @@ public abstract class Menu {
     }
 
     static void removeSeanceCinema(boolean language, Cinema cinema){
-        System.out.println(UserInterface.ACTION_EMPTY.getText(language));
-        cinema.removeSeance(new Seance(new Movie("1", 1), LocalTime.now()), "Friday");
+
     }
 
     static void printMenu(boolean language){

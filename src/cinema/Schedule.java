@@ -9,18 +9,18 @@ public final class Schedule {
      - поле Set<Seance> seances = new TreeSet<>();
      - методи: addSeance (Seance), removeSeance (Seance);
      */
-    private static Set<Seance> seances = new TreeSet<>();
+    private  Set<Seance> seances = new TreeSet<>();
 
 
-    public static Set<Seance> getSeances(){
+    public  Set<Seance> getSeances(){
         return seances;
     }
 
-    public static void addSeance(Seance seance){
-        seances.add(seance);
+    public void addSeance(Seance seance){
+        this.seances.add(seance);
     }
 
-    public static void removeSeance(Seance seance){
-        seances.remove(seance);
+    public void removeSeance(Seance seance){
+        this.seances.remove(seance);
     }
 }
