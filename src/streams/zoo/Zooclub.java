@@ -1,6 +1,7 @@
 package streams.zoo;
 
 
+import cinema.UserInterface;
 import service.Input;
 
 import java.util.*;
@@ -60,7 +61,7 @@ public final class Zooclub {
         Person person = choiceMember();
         if (person != null){
             System.out.println(Arrays.toString(personListMap.get(person).toArray()));
-            System.out.print("Оберіть тваринку: ");
+            System.out.print(UserInterfaces.SELECT_ANIMAL.getText());
         }
         //personListMap.get(person).remove(5);
     }
@@ -84,7 +85,7 @@ public final class Zooclub {
     }
 
     private Person choiceMember(){
-        System.out.print("Введіть ім'я та вік члена зооклубу: ");
+        System.out.print(UserInterfaces.INPUT_NAME_AND_AGE.getText());
         String wholeName = Input.getString();
         String[] names = wholeName.split("\\s+");
 
@@ -104,12 +105,12 @@ public final class Zooclub {
             if (findMember){
                 return temp;
             }else {
-                System.out.println("Такого члена зооклубу не знайдено");
+                System.out.println(UserInterfaces.WASNT_FIND_MEMEBER.getText());
                 return null;
             }
 
         }catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e){
-            System.out.println("Такого члена зооклубу не знайдено");
+            System.out.println(UserInterfaces.WASNT_FIND_MEMEBER.getText());
             return null;
         }
     }

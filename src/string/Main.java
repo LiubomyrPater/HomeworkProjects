@@ -29,16 +29,16 @@ public class Main {
 
 
 
-        //Menu.palindrom(text);
+        //UserInterfaces.palindrom(text);
 
 
-        //System.out.println(Menu.repalaceLoudLetters(text));
+        //System.out.println(UserInterfaces.repalaceLoudLetters(text));
 
 
-        //System.out.println(Menu.countWords(text));
+        //System.out.println(UserInterfaces.countWords(text));
 
 
-        //System.out.println(Menu.countSentence(text));
+        //System.out.println(UserInterfaces.countSentence(text));
 
 
         System.out.println(Realised.theMostRepetitiveLocalWord(text));

@@ -30,7 +30,7 @@ public class Main {
 
         Random random = new Random();
         while (true){
-            Menu.printMenu();
+            System.out.print(UserInterfaces.PRINT_MENU.getText());
             String chapter = Input.getString();
             switch (chapter){
                 case "1":{
@@ -54,7 +54,7 @@ public class Main {
                 }case "0":{
                     System.exit(0);
                 }default:{
-                    System.out.println("Неіснуючий пункт меню");
+                    System.out.println(UserInterfaces.NOT_IMPLEMENTED.getText());
                 }
             }
         }

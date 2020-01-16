@@ -34,6 +34,6 @@ public class Main {
                 cars[i][j] = new Car(random);
             }
         }
-        Menu.mainMenu(scanner, cars, random);*/
+        UserInterfaces.mainMenu(scanner, cars, random);*/
     }
 }

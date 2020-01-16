@@ -9,7 +9,7 @@ public class Animal {
     private String name;
 
     public enum Type{
-        DOG, CAT, HORSE, RABIT, MOUSE
+        DOG, CAT, HORSE, RABBIT, MOUSE
     }
 
     public Animal(Random random) {
