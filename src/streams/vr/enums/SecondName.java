@@ -1,4 +1,4 @@
-package streams.vru.enums;
+package streams.vr.enums;
 
 public enum SecondName {
     PETRENKO,

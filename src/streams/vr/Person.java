@@ -1,7 +1,7 @@
-package streams.vru;
+package streams.vr;
 
-import streams.vru.enums.Name;
-import streams.vru.enums.SecondName;
+import streams.vr.enums.Name;
+import streams.vr.enums.SecondName;
 
 import java.util.Objects;
 import java.util.Random;
@@ -10,18 +10,11 @@ public class Person {
 
     private Name name;
     private SecondName secondName;
-    private int age;
-    private int weight;
-    private int heigt;
-
 
 
     protected Person(Random random) {
         this.name = Name.values()[random.nextInt(Name.values().length)];
         this.secondName = SecondName.values()[random.nextInt(SecondName.values().length)];
-        this.age = random.nextInt(40) + 20;
-        this.weight = random.nextInt(60) + 60;
-        this.heigt = random.nextInt(30) + 150;
     }
 
     protected Person(Name name, SecondName secondName) {

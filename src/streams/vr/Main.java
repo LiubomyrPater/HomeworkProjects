@@ -1,9 +1,7 @@
-package streams.vru;
+package streams.vr;
 
 import java.util.Random;
 
-import static iterator.Menu.choiceChapter;
-import static iterator.Menu.printMainMenu;
 
 /**
  Використовуючи лямбди та StreamAPI моделюємо верховну раду.
@@ -51,7 +49,7 @@ import static iterator.Menu.printMainMenu;
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        VR.getOne().createDeputies(random);
+        SingletonVR.getInstance().createDeputies(random);
         boolean program = true;
         while (program){
             Menu.printMainMenu();

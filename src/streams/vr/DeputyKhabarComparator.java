@@ -1,4 +1,4 @@
-package streams.vru;
+package streams.vr;
 
 import java.util.Comparator;
 

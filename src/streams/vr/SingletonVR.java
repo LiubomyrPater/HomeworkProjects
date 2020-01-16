@@ -1,62 +1,57 @@
-package streams.vru;
+package streams.vr;
 
 import service.Input;
-import streams.vru.enums.Name;
-import streams.vru.enums.SecondName;
+import streams.vr.enums.Name;
+import streams.vr.enums.SecondName;
+import streams.vr.enums.UserInterface;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.function.Predicate;
 
-public class VR {
+public class SingletonVR {
 
-    private static VR one;
     private List<Fraction> fractions = new ArrayList<>();
     private List<Deputy> deputies = new ArrayList<>();
 
-    private VR(){}
+    private SingletonVR(){}
 
-    protected static VR getOne(){
-        if (one == null){
-            one = new VR();
-        }
-        return one;
+    private static class SingletonHolder{
+        private static final SingletonVR HOLDER_INSTANCE = new SingletonVR();
     }
 
-    protected void viewDeputies() {
-        for (Deputy x : deputies) {
-            System.out.println(x);
-        }
+    public static SingletonVR getInstance(){
+        return SingletonHolder.HOLDER_INSTANCE;
     }
 
-    protected void createDeputies(Random random){
-        for (int i = 0; i <50 ; i++) {
+
+
+    void viewDeputies() {
+        deputies.forEach(System.out::println);
+    }
+
+    void createDeputies(Random random){
+        for (int i = 0; i <50 ; i++)
             deputies.add(new Deputy(random));
-        }
     }
 
-    protected void addFraction(){
-        System.out.print("Введіть назву нової фракці: ");
+    void addFraction(){
+        System.out.print(UserInterface.INPUT_NAME_NEW_FRACTION.getText());
         String name = Input.getString();
-        one.fractions.add(new Fraction(name));
+        getInstance().fractions.add(new Fraction(name));
     }
 
-    protected void delFraction(Fraction fraction){
-        if (fraction != null){
+    void delFraction(Fraction fraction){
+        Predicate<Fraction> a = Objects::nonNull;
+        if (a.test(fraction))
             fractions.remove(fraction);
-        }
     }
 
-    protected void viewAllFractions(){
-        Iterator<Fraction> fractionIterator = fractions.iterator();
-        while (fractionIterator.hasNext()){
-            System.out.println(fractionIterator.next());
-        }
+    void viewAllFractions(){
+        fractions.forEach(System.out::println);
     }
 
-    protected Fraction choiceFraction(){
-        System.out.print("Введіть назву фракці: ");
+    Fraction choiceFraction(){
+        System.out.print(UserInterface.INPUT_NAME_FRACTION.getText());
         String name = Input.getString();
         Iterator<Fraction> fractionIterator = fractions.iterator();
         int numberFraction = -1;
@@ -68,16 +63,16 @@ public class VR {
                 break;
             }
         }
-        if (findFraction){
+        if (findFraction)
             return fractions.get(numberFraction);
-        }else {
-            System.out.println("Фракцію не знайдено");
+        else {
+            System.out.println(UserInterface.FRACTION_WASNT_FOUND.getText());
             return null;
         }
     }
 
-    protected Deputy choiceDeputy(){
-        System.out.print("Введіть ім'я та прізвище депутата: ");
+    Deputy choiceDeputy(){
+        System.out.print(UserInterface.INPUT_NAME_DEPUTY.getText());
         String wholeName = Input.getString();
         String[] names = wholeName.split("\\s+");
 
@@ -96,15 +91,15 @@ public class VR {
                     break;
                 }
             }
-            if (findDeputy){
+            if (findDeputy)
                 return deputies.get(numberDeputy);
-            }else {
-                System.out.println("Депутата не знайдено");
+            else {
+                System.out.println(UserInterface.DEPUTY_WASNT_FOUND.getText());
                 return null;
             }
 
         }catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e){
-            System.out.println("Депутата не знайдено");
+            System.out.println(UserInterface.DEPUTY_WASNT_FOUND.getText());
             return null;
         }
     }

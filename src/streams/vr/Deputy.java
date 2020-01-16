@@ -1,8 +1,9 @@
-package streams.vru;
+package streams.vr;
 
 import service.Input;
-import streams.vru.enums.Name;
-import streams.vru.enums.SecondName;
+import streams.vr.enums.Name;
+import streams.vr.enums.SecondName;
+import streams.vr.enums.UserInterface;
 
 import java.util.Random;
 
@@ -23,29 +24,28 @@ public class Deputy extends Person {
     }
 
 
-    protected boolean isKhabar() {
+    boolean isKhabar() {
         return khabar;
     }
 
-    protected int getValueKhabar() {
+    int getValueKhabar() {
         return valueKhabar;
     }
 
-    protected void setValueKhabar(int valueKhabar) {
+    private void setValueKhabar(int valueKhabar) {
         this.valueKhabar += valueKhabar;
     }
 
-    protected void givKhabar(){
-        if (!khabar){
-            System.out.println("Цей депутат не бере хабарів");
-        }else {
-            System.out.println("Яку суму ви пропонуєте");
+    void givKhabar(){
+        if (!khabar)
+            System.out.println(UserInterface.DEPUTY_DOESNT_TAKE_BRIBES.getText());
+        else {
+            System.out.println(UserInterface.HOW_SUM.getText());
             int value = Input.getInt();
-            if (value > 5000){
-                System.out.println("Міліція увязнить депутата");
-            }else {
+            if (value > 5000)
+                System.out.println(UserInterface.POLICE.getText());
+            else
                 setValueKhabar(value);
-            }
         }
     }
 
