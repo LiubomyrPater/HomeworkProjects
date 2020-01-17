@@ -41,9 +41,7 @@ public class SingletonVR {
     }
 
     void delFraction(Fraction fraction){
-        Predicate<Fraction> a = Objects::nonNull;
-        if (a.test(fraction))
-            fractions.remove(fraction);
+        fractions.remove(fraction);
     }
 
     void viewAllFractions(){

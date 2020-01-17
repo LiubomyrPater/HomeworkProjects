@@ -21,35 +21,34 @@ package streams.zoo;
  */
 import service.Input;
 
-import java.util.Random;
-
 public class Main {
 
 
     public static void main(String[] args) {
 
-        Random random = new Random();
+        Zooclub.randomCreateMembers(5, 15);
+
         while (true){
             System.out.print(UserInterfaces.PRINT_MENU.getText());
             String chapter = Input.getString();
             switch (chapter){
                 case "1":{
-                    Zooclub.getInstance(random).addMember(random);
+                    Zooclub.addMember();
                     break;
                 }case "2":{
-                    Zooclub.getInstance(random).addAnimalInMember(random);
+                    Zooclub.addAnimalToMember();
                     break;
                 }case "3":{
-                    Zooclub.getInstance(random).remoweAnimalFromMember();
+                    Zooclub.remoweAnimalFromMember();
                     break;
                 }case "4":{
-                    Zooclub.getInstance(random).remoweMember();
+                    Zooclub.remoweMember();
                     break;
                 }case "5":{
-                    Zooclub.getInstance(random).remoweAnimalFromAllMembers();
+                    Zooclub.remoweAnimalFromAllMembers();
                     break;
                 }case "6":{
-                    Zooclub.getInstance(random).viewZooclub();
+                    Zooclub.viewZooclub();
                     break;
                 }case "0":{
                     System.exit(0);

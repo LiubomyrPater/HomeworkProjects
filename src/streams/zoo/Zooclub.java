@@ -1,31 +1,27 @@
 package streams.zoo;
 
-
-import cinema.UserInterface;
 import service.Input;
-
 import java.util.*;
+/**
+        В класі Зооклуб як поле прописати наступне: Map<Person, List<Pet>> map;
 
-//        В класі Зооклуб як поле прописати наступне: Map<Person, List<Pet>> map;
+        Реалізувати консольне меню, таким чином щоб можна було:
 
-//        Реалізувати консольне меню, таким чином щоб можна було:
+        Додати учасника клубу
+        Додати тваринку до учасника клубу
+        Видалити тваринку з учасника клубу
+        Видалити учасника з клубу
+        Видалити конкретну тваринку зі всіх власників
+        Вивести на екран зооклуб
+*/
+abstract class Zooclub {
 
-//        Додати учасника клубу
-//        Додати тваринку до учасника клубу
-//        Видалити тваринку з учасника клубу
-//        Видалити учасника з клубу
-//        Видалити конкретну тваринку зі всіх власників
-//        Вивести на екран зооклуб
+    private final static Random random = new Random();
+    private final static Map<Person, List<Animal>> personListMap = new HashMap<>();
 
 
-public final class Zooclub {
-
-    private static Zooclub instance = new Zooclub(new Random());
-
-    private final Map<Person, List<Animal>> personListMap = new HashMap<>();
-
-    private Zooclub(Random random) {
-        for (int j = 0; j < (random.nextInt(10) + 10); j++) {
+    static void randomCreateMembers(int from, int to){
+        for (int j = 0; j < (random.nextInt(to - from) + from); j++) {
             List<Animal> animals = new ArrayList<>();
             for (int i = 0; i < (random.nextInt(5) + 1); i++) {
                 animals.add(new Animal(random));
@@ -34,13 +30,7 @@ public final class Zooclub {
         }
     }
 
-
-
-    public static Zooclub getInstance(Random random){
-        return instance;
-    }
-
-    public void addMember(Random random){
+    static void addMember(){
         List<Animal> animals = new ArrayList<>();
         for (int i = 0; i < (random.nextInt(5) + 1); i++) {
             animals.add(new Animal(random));
@@ -48,7 +38,7 @@ public final class Zooclub {
         personListMap.put(new Person(random), animals);
     }
 
-    public void addAnimalInMember(Random random){
+    static void addAnimalToMember(){
         Person person = choiceMember();
         if (person != null) {
             System.out.println(Arrays.toString(personListMap.get(person).toArray()));
@@ -57,34 +47,51 @@ public final class Zooclub {
         }
     }
 
-    public void remoweAnimalFromMember(){
+    static void remoweAnimalFromMember(){
         Person person = choiceMember();
         if (person != null){
             System.out.println(Arrays.toString(personListMap.get(person).toArray()));
             System.out.print(UserInterfaces.SELECT_ANIMAL.getText());
+
+            String temp = Input.getString();
+            Animal.Type animalType = choiceAnimalType(temp);
+            if (animalType != null){
+                Animal animal = new Animal(animalType);
+                personListMap.get(person).remove(animal);
+            }
         }
-        //personListMap.get(person).remove(5);
     }
 
-    public void remoweMember(){
-        Person person = new Person(Person.Name.OLEH, 980);
+    static void remoweMember(){
+        Person person = choiceMember();
         personListMap.remove(person);
     }
 
-    public void remoweAnimalFromAllMembers(){
-        Animal animal = new Animal();
-        animal.setType(Animal.Type.CAT);
-        Set<Map.Entry<Person, List<Animal>>> entrySet = personListMap.entrySet();
-        for (Map.Entry<Person, List<Animal>> pair: entrySet){
-            pair.getValue().remove(animal);
+    static void remoweAnimalFromAllMembers(){
+        System.out.println(UserInterfaces.INPUT_ANIMALS_TYPE.getText());
+        String temp = Input.getString();
+        Animal.Type animalType = choiceAnimalType(temp);
+        if (animalType != null){
+            Animal animal = new Animal(animalType);
+            Set<Map.Entry<Person, List<Animal>>> entrySet = personListMap.entrySet();
+            entrySet.forEach(pair -> pair.getValue().remove(animal));
         }
     }
 
-    public void viewZooclub(){
+    static void viewZooclub(){
         System.out.println(personListMap);
     }
 
-    private Person choiceMember(){
+    private static Animal.Type choiceAnimalType(String type){
+        try {
+            return Animal.Type.valueOf(type);
+        }catch (IllegalArgumentException a){
+            System.out.println(UserInterfaces.TYPE_NOT_EXIST.getText());
+            return null;
+        }
+    }
+
+    private static Person choiceMember(){
         System.out.print(UserInterfaces.INPUT_NAME_AND_AGE.getText());
         String wholeName = Input.getString();
         String[] names = wholeName.split("\\s+");

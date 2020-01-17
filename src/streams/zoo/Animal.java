@@ -23,14 +23,7 @@ public class Animal {
         this.name = String.valueOf(chars);
     }
 
-    public Animal() {
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
+    public Animal(Type type) {
         this.type = type;
     }
 

@@ -4,8 +4,10 @@ public enum UserInterfaces {
 
     NOT_IMPLEMENTED("Неіснуючий пункт меню"),
     SELECT_ANIMAL("Оберіть тваринку: "),
+    INPUT_ANIMALS_TYPE("Оберіть вид тваринки"),
     INPUT_NAME_AND_AGE("Введіть ім'я та вік члена зооклубу: "),
     WASNT_FIND_MEMEBER("Такого члена зооклубу не знайдено"),
+    TYPE_NOT_EXIST("Такої тваринки не існує"),
     PRINT_MENU("\n" +
             "1 - Додати учасника клубу\n" +
             "2 - Додати тваринку до учасника клубу\n" +
