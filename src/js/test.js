@@ -13,16 +13,16 @@ function one() {
 }
 
 function second() {
-    console.clear()
+    console.clear();
     var login, password, message, temp;
-    login = prompt('Create login')
-    password = prompt('Create password')
-    console.log('Begin')
-    temp = prompt('Who\'s there?')
+    login = prompt('Create login');
+    password = prompt('Create password');
+    console.log('Begin');
+    temp = prompt('Who\'s there?');
     if (temp != login) {
         console.log('I don\'t know you')
     } else {
-        temp = prompt('Password?')
+        temp = prompt('Password?');
         if (temp != password){
             console.log('Wrong password')
         } else {
@@ -35,8 +35,8 @@ function third() {
     user = {
         name: 'Пилип',
         surnrname: 'Шевченко'
-    }
-    user.name = 'Сергій'
+    };
+    user.name = 'Сергій';
     delete user.name
 }
 
@@ -45,7 +45,7 @@ function fourth() {
         vasya: 100,
         petya: 200,
         oksana: 300
-    }
+    };
 
     function sum(obj) {
         var sum = 0;
@@ -57,16 +57,26 @@ function fourth() {
         return sum;
     }
 
-    summed = sum(employeeSalaries)
+    summed = sum(employeeSalaries);
     console.log(summed)
 }
 
 function fifth() {
-    number_1 = 5;
-    number_2 = 7;
+    action = prompt('input action, please');
+    number_1 = 7;
+    number_2 = 0;
 
+
+    if (action === '-') {
+        console.log(number_1 - number_2)
+    } else if (action === '+') {
+        console.log(number_1 + number_2)
+    } else if (action === '/') {
+        console.log(number_1 / number_2)
+    } else if (action === '*') {
+        console.log(number_1 * number_2)
+    }
 }
-
 
 /**
  1. Оголосіть дві змінні admin та name.
