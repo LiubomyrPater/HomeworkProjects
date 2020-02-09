@@ -6,12 +6,12 @@
 
  2.  Створіть масив styles з елементами «Джаз», «Блюз».
  Додайте в кінець значення «Рок-н-Ролл».
- Замініть передостаннє значення на «Класика».
- Код заміни передостаннього значення має працювати для масивів будь-якої довжини.
+ Замініть передостаннє значення на «Класика». Код заміни передостаннього значення має працювати для масивів будь-якої довжини.
  Видаліть перше значення масиву і виведіть його на консоль.
  Додайте в початок значення «Реп» і «Реггі».
 
- 3.  Створіть функцію find (arr, value), яка шукає в масиві arr значення value і повертає його номер, якщо знайдено, або -1, якщо не знайдено.
+ 3.  Створіть функцію find(arr, value), яка шукає в масиві arr значення value і повертає його номер,
+ якщо знайдено, або -1, якщо не знайдено.
 
  4.  Створити масив чисел де буде не менше 20 значень, серед них повиннні бути як позитивні так і негативні значення.
  Вісортувати даний масив:
@@ -35,8 +35,50 @@
  */
 
 
+function one() {
+    let products=[];
+    console.log(products.length);
+    products.push(2,5,6);
+    console.log(products.length);
+    console.log(products.pop());
+}
 
-let products=[];
-console.log(products.length);
-products.push(2,5,6);
-console.log(products.length);
+function two() {
+    let styles = ["Jazz","Blues"]
+    styles.push("Rock 'n' roll")
+    console.log(styles)
+    styles.splice((styles.length-2),1,"Classic")
+    console.log(styles)
+    console.log(styles.splice(0,1))
+    console.log(styles)
+    styles.unshift("Rep", "Reggi")
+    console.log(styles)
+}
+
+function three(){}
+function four(){}
+function five(){}
+function six(){}
+function seven(){}
+
+console.log("-------------ONE-------------")
+one();
+console.log("-------------END ONE-------------")
+console.log("-------------TWO-------------")
+two();
+console.log("-------------END TWO-------------")
+console.log("-------------THREE-------------")
+three();
+console.log("-------------END THREE-------------")
+console.log("-------------FOUR-------------")
+four();
+console.log("-------------END FOUR-------------")
+console.log("-------------FIVE-------------")
+five();
+console.log("-------------END FIVE-------------")
+console.log("-------------SIX-------------")
+six()
+console.log("-------------END SIX-------------")
+console.log("-------------SEVEN-------------")
+seven();
+console.log("-------------END SEVEN-------------")
