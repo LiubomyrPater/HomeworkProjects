@@ -88,6 +88,7 @@ function five(){
     let new_arr = filterRange(arr_int,-32,78);
     console.log(new_arr);
 }
+
 function six(){
     function camelize(str) {
         return str
@@ -100,12 +101,47 @@ function six(){
     console.log("my-short-string");
     console.log(camelize("my-short-string"));
 }
-function seven(){}
 
-
-
-
-
+function seven(){
+    let students = [
+        one = {
+            name: "Ivan",
+            surname: "Franko",
+            age: 20,
+            yearOfStuding: 3,
+            facultyName: "Ekonom"
+        },
+        two = {
+            name: "Taras",
+            surname: "Shevchenko",
+            age: 20,
+            yearOfStuding: 3,
+            facultyName: "Uridical"
+        },
+        three = {
+            name: "Taras",
+            surname: "Shevchenko",
+            age: 20,
+            yearOfStuding: 3,
+            facultyName: "Fizmat"
+        },
+        four = {
+            name: "Taras",
+            surname: "Shevchenko",
+            age: 20,
+            yearOfStuding: 3,
+            facultyName: "Chemical"
+        },
+        five = {
+            name: "Ivan",
+            surname: "Franko",
+            age: 20,
+            yearOfStuding: 3,
+            facultyName: "Medical"
+        }
+    ];
+    console.log(students);
+}
 
 
 
