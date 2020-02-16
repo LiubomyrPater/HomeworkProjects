@@ -56,7 +56,7 @@ function two() {
 }
 
 function three(){
-    let array = ["a","b","c","d","f"]
+    let array = ["a","b","c","d","f"];
     function find(arr, value) {
         return arr.indexOf(value, 0);
     }

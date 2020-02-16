@@ -5,21 +5,26 @@
     яка при виклику buffer (value) додасть значення в деяке внутрішнє сховище,
     а при виклику без аргументів buffer () - поверне його.
     Ось приклад роботи:
-                            function makeBuffer () {/ * ваш код * /}
+                            function makeBuffer () {
+                                / * ваш код * /
+                            }
                             var buffer = makeBuffer();
+
                             // додати значення до буферу
-                            buffer.add( 'JavaScript');
-                            buffer.add( 'Вчити');
-                            buffer.add( 'Потрібно!');
+                                buffer.add( 'JavaScript');
+                                buffer.add( 'Вчити');
+                                buffer.add( 'Потрібно!');
+
                             // отримати поточне значення
-                            console.log(buffer.print());
+                                console.log(buffer.print());
+
                             // JavaScript Вчити Потрібно!
                             Буфер повинен перетворювати всі дані до стрічкового типу:
                                 var buffer = makeBuffer ();
-                            buffer.add(0);
-                            buffer.add(1);
-                            buffer.add(0);
-                            console.log (buffer.print()); // '010'
+                                buffer.add(0);
+                                buffer.add(1);
+                                buffer.add(0);
+                                console.log (buffer.print()); // '010'
 
 
     2. Реалізуйте метод buffer.clear (), який буде очищати поточний вміст буфера:
@@ -48,3 +53,41 @@
         Циклом for пройтись по всіх елементах масиву і викликати в кожного метод work().
 
     Всі виводи направити в текстову консоль.*/
+
+
+function one() {
+
+    function makeBuffer(value) {
+        let buf = value;
+        return function (buf) {
+            return buf;
+        };
+    }
+
+    let buffer2 = makeBuffer();
+    let buffer3 = makeBuffer();
+
+    console.log(buffer2('fsfsdf'));
+    console.log(buffer3('fdsfdsfdsfdsfsdfsdf'));
+    console.log(buffer2)
+
+}
+
+function two() {
+
+}
+
+function three() {
+
+}
+
+
+console.log("-------------ONE-------------")
+one();
+console.log("-------------END ONE-------------")
+console.log("-------------TWO-------------")
+two();
+console.log("-------------END TWO-------------")
+console.log("-------------THREE-------------")
+three();
+console.log("-------------END THREE-------------")
