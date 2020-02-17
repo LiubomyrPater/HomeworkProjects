@@ -17,8 +17,8 @@
 
                             // отримати поточне значення
                                 console.log(buffer.print());
+                                > JavaScript Вчити Потрібно!
 
-                            // JavaScript Вчити Потрібно!
                             Буфер повинен перетворювати всі дані до стрічкового типу:
                                 var buffer = makeBuffer ();
                                 buffer.add(0);
@@ -29,7 +29,7 @@
 
     2. Реалізуйте метод buffer.clear (), який буде очищати поточний вміст буфера:
         function makeBuffer () {
-        ... ваш код ...
+            ... ваш код ...
         }
         var buffer = makeBuffer ();
         buffer.add("Тест");
@@ -58,19 +58,38 @@
 function one() {
 
     function makeBuffer(value) {
-        let buf = value;
-        return function (buf) {
+
+        var buf;
+
+        if (value === undefined){
+            buf = '';
+        } else {
+            buf = value;
+        }
+
+        this.add_ = function(value){
+            buf += value;
+        };
+
+        this.print_ = function () {
             return buf;
         };
+
+
     }
 
-    let buffer2 = makeBuffer();
-    let buffer3 = makeBuffer();
+    var buffer = new makeBuffer();
 
-    console.log(buffer2('fsfsdf'));
-    console.log(buffer3('fdsfdsfdsfdsfsdfsdf'));
-    console.log(buffer2)
 
+    buffer.add_(2);
+    buffer.add_(4);
+    buffer.add_(1);
+    console.log(buffer.print_());
+
+    buffer.add_('first');
+    buffer.add_('second');
+    buffer.add_('third');
+    console.log(buffer.print_());
 }
 
 function two() {
@@ -82,12 +101,12 @@ function three() {
 }
 
 
-console.log("-------------ONE-------------")
+console.log("-------------ONE-------------");
 one();
-console.log("-------------END ONE-------------")
-console.log("-------------TWO-------------")
+console.log("-------------END ONE-------------");
+console.log("-------------TWO-------------");
 two();
-console.log("-------------END TWO-------------")
-console.log("-------------THREE-------------")
+console.log("-------------END TWO-------------");
+console.log("-------------THREE-------------");
 three();
-console.log("-------------END THREE-------------")
+console.log("-------------END THREE-------------");
