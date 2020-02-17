@@ -24,7 +24,9 @@
                                 buffer.add(0);
                                 buffer.add(1);
                                 buffer.add(0);
-                                console.log (buffer.print()); // '010'
+
+                                console.log (buffer.print());
+                                > '010'
 
 
     2. Реалізуйте метод buffer.clear (), який буде очищати поточний вміст буфера:
@@ -34,9 +36,12 @@
         var buffer = makeBuffer ();
         buffer.add("Тест");
         buffer.add("тебе не з'їсть");
-        alert (buffer.print()); // Тест тебе не з'їсть
+        alert (buffer.print());
+        >Тест тебе не з'їсть
+
         buffer.clear ();
-        alert (buffer.print()); // ""
+        alert (buffer.print());
+        > ""
 
 
     3. Написати скрипти Node де:
@@ -55,7 +60,7 @@
     Всі виводи направити в текстову консоль.*/
 
 
-function one() {
+function one_two() {
 
     function makeBuffer(value) {
 
@@ -75,6 +80,10 @@ function one() {
             return buf;
         };
 
+        this.clear_ = function () {
+            buf = '';
+        }
+
 
     }
 
@@ -90,23 +99,22 @@ function one() {
     buffer.add_('second');
     buffer.add_('third');
     console.log(buffer.print_());
+    buffer.clear_();
+    console.log(buffer.print_());
+    buffer.add_('final');
+    console.log(buffer.print_());
 }
 
-function two() {
-
-}
 
 function three() {
 
 }
 
 
-console.log("-------------ONE-------------");
-one();
-console.log("-------------END ONE-------------");
-console.log("-------------TWO-------------");
-two();
-console.log("-------------END TWO-------------");
+console.log("-------------ONE & TWO-------------");
+one_two();
+console.log("-------------END ONE & TWO-------------");
+
 console.log("-------------THREE-------------");
 three();
 console.log("-------------END THREE-------------");
